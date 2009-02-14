@@ -5,7 +5,7 @@ title: A title example
 
 	<ul class="posts">
     {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> <span class=date>{{ post.date | date_to_string:"%Y" }}</span> </li>
+      <li><a href="{{ post.url }}">{{ post.title }}</a> <span class=date>{{ post.date | date_to_string }}</span> </li>
     {% endfor %}
   </ul>
   
