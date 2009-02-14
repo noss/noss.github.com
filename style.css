@@ -2,3 +2,8 @@ body {
 	width: 600px;
 	margin: 0 auto 0 150px;
 }
+
+span.date {
+	color: #aaa;
+	font-size: small;
+}
