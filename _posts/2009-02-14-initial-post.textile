@@ -1,0 +1,11 @@
+---
+layout: main
+title: Initial post
+---
+
+h2. {{ page.title }}
+
+p(meta). 14 Feb 2009 Stockholm
+
+This is an attempt at using github pages to blog.
+

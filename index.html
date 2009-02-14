@@ -1,12 +1,14 @@
-<html>
- <head>
-	<title>Noss' github page</title>
-	<link rel=stylesheet type="text/css" href="/style.css">
- </head>
-<body>
-<a href="http://github.com/noss"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub" /></a>
-	<h1>Christian Sunesson</h1>
+---
+layout: main
+title: A title example
+---
 
+	<ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  
 	<h2>About</h2>
 	<p> I like beer. Mostly lagers, but a weiss beer and ale have gone down 
 as well.
