@@ -1,0 +1,55 @@
+<html>
+ <head>
+	<title>IServe - A tiny HTTP Server OTP application in Erlang</title>
+	<link rel=stylesheet type="text/css" href="/style.css">
+ </head>
+<body>
+<a href="http://github.com/noss/iserve"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub" /></a>
+	<h1>IServe</h1>
+	<h2>About IServe</h2>
+	<p> IServe is a tiny HTTP server in Erlang. It provides you with the ability
+to listen to receive a callback to a module of your choice for each incoming
+http request.
+
+	<pre>-module(iserve_example).
+-behaviour(iserve).
+
+-export([start_link/0, iserve_request/2]).
+
+start_link() ->
+  application:start(sasl),
+  application:start(iserve),
+  iserve:add_server({8080, {127, 0, 0, 1}}, ?MODULE, []).
+
+iserve_request(_C, _Req) ->
+  erlang:display({_C, _Req}),
+  Mime = <<"text/plain;charset=utf-8">>, 
+  Body = <<"Hello world!">>,
+  iserve:reply_ok([], {Mime, Body}).
+</pre>
+
+	<p> IServe has its roots in the excellent article <a href="http://www.trapexit.org/A_fast_web_server_demonstrating_some_undocumented_Erlang_features">A fast web server demonstrating some undocumented Erlang features</a> written by Sean Hinde.
+	<p> <a href="http://blog.tornkvist.org/">Torbjörn Törnkvist</a> put the
+code from the article into <a href="http://blog.tornkvist.org/blog.yaws?id=1193866043645631" title="Example of using iserve as a webserver">a working OTP application</a>. 
+  <p> I have been working on allowing this OTP application to have multiple
+HTTP listeners running, being able to add them dynamically.
+
+	<h2>Authors</h2>
+	<ul>
+		<li> Sean Hinde, writing the article with the code and all.
+		<li> <a href="http://blog.tornkvist.org/">Torbjörn Törnkvist</a>, for 
+building the packaged OTP application.
+		<li> Christian Sunesson, a number of patches.
+	</ul>
+	<h2>Source code</h2>
+	<ul>
+		<li> <a href="http://github.com/noss/iserve/tree/master">Christian Sunessons github repo</a>.
+		<li> <a href="http://www.tornkvist.org/gitweb?p=iserve.git;a=summary">Torbjörn Törnkvists git repo</a>
+	</ul>
+	<h2>Documentation</h2>
+	<p> See the tests-directory for some callback examples.
+	<h2>See also</h2>
+	<p> The <a href="http://frihjul.net/ifastcgi">ifastcgi erlang FastCGI server</a>
+	<h2>License</h2>
+	<p> Keep looking, I believe it is under some BSD-ish license. My commits will all be the same as what Torbjörn and Sean used.
+
