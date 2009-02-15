@@ -12,11 +12,8 @@ I do not yet know what to use this blog for. It was more that it seemed so simpl
 Some ideas I have had:
 
 * Write short snippets of code and link into the Erlang manual pages for some google linkjuice to them.
-
 * Review "Release It!" from pragmatic programmers, in the context of how the robustness patterns map to Erlang.
-
 * Write public promises of development, so I dont slack, but get stuff done.
-
 * Get a steady flow of usage examples for my projects. 
 
 What should I prioritize?
