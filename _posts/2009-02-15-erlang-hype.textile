@@ -7,34 +7,34 @@ h2. {{ page.title }}
 
 p(meta). 2009-02-15
 
-Erlang was released as open source over 10 years ago. In 1998. It did not
+p. Erlang was released as open source over 10 years ago. In 1998. It did not
 get much attention at the time. Inside Ericsson Erlang was developed to
 manage the complexity of phone switches, and meeting the up-time requirements.
 
-What appealed to me from the start about Erlang was how it seemed to be the
+p. What appealed to me from the start about Erlang was how it seemed to be the
 product of telecoms people turning software developers, and not the product
 of software developers turning telecom. It had a completely different
 attitude toward system quality.
 
-Most programming languages (or the communities around them) have some kind
+p. Most programming languages (or the communities around them) have some kind
 of mind-share you must get into to really work with the language. When it
 comes to Forth it is about minimalism. For Lisp it is about language 
 adaption. Etc. 
 
-For Erlang it is about writing systems that can operate for decades. This 
+p. For Erlang it is about writing systems that can operate for decades. This 
 colors the way you think in Erlang.
 
-In a decade, your powersupply capacitors can burn up. In a decade your
+p. In a decade, your powersupply capacitors can burn up. In a decade your
 hard drives fail multiple times. In a decade hardware upgrades can/will
 happen on the running system.  You are programming in the precense of errors.
 You are programming EXPECTING them to happen. Because failures WILL happen
 if your system runs for a decade. You just dont know when and where, just that
 it will be costly if your system isnt working.
 
-The past years Erlang has gained huge traction in USA. It is known as the 
+p. The past years Erlang has gained huge traction in USA. It is known as the 
 language to make good use out of multi-core cpus. Not much else.
 
-Please dont forget the roots of Erlang. Multi-core scalability and easy 
+p. Please dont forget the roots of Erlang. Multi-core scalability and easy 
 clustering are positive side effects. But Erlang is all about robust 
 systems.
 
