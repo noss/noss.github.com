@@ -1,0 +1,18 @@
+---
+layout: post
+title: More-Erlang-at-Github WIN!
+---
+
+h2. {{ page.title }}
+
+p(meta). 2009-02-18
+
+I just noticed that "klacke joined github":http://github.com/klacke. Klacke is the author of yaws, and it seems like yaws is being moved over to git.
+
+This pretty much means that all the popular erlang web servers/frameworks have moved to git now. 
+
+I really like git, because DVCS(distributed version control system) allow you to hack other libraries better. You can clone the original, and commit your fixes locally. When you think changes are good enough to share, you can make your github fork, and push your local git to your clone.
+
+GIT makes it practical to change other open source projects, and easier to contribute.
+
+
