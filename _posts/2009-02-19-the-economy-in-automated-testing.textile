@@ -1,0 +1,25 @@
+---
+layout: post
+title: The economy in automated testing
+---
+
+h2. {{ page.title }}
+
+p(meta). 2009-02-19
+
+Before leaving work today I had a small unofficial meeting with my collegues in how we should argue for a large investment in an inhouse project to automate testing. Managment listens to economic reasoning. We developers have a hunch it will be good.
+
+Is this something you have been through, or was it natural for everyone involved to go for automated testing?
+
+The arguments we collected are basically along these lines:
+
+* if we write automated tests, we free up manual testing man-hours. Especially since we have different parallell product lines (stable and experimental), and we can easily test on our list of supported platforms,
+* with automated tests we can make more releases per year, which means we're more agile in customer-ordered projects,
+* automated tests are better than buying cheap outsourced labour, so we can stay smaller and more high-competence,
+* finally, automated tests is a new kind of testing for us that allow us to find race conditions and deadlocks from long-running tests (plus, while writing them we will likely find new issues other testing was not as effective at finding).
+
+It is actually quite difficult to translate the above list into absolute savings in money. It is all very vague and word of mouth that it is a good approach. In the end it is all about optimizing the profit of the product.
+
+
+
+
