@@ -1,0 +1,79 @@
+---
+layout: post
+title: Testable code drags OOP into Functional Programming
+---
+
+h2. {{ page.title }}
+
+p(meta). 2009-02-21
+
+I think I am on to something about functional programming. Something that will make it easier to explain FP(functional programming) to someone with their head stuck in object-oriented programming. It takes a certain insight to test-driven design though.  I'll try to get my thoughts out on the subject in this long article.
+
+
+One of my favourite blog topics is quality and testing. Software engineering produces very complex systems, it is amazing that anything works at all really.  But to allow us to keep up with the ever increasing complexity demands and cost pressure, we need to look at how to improve quality both in the end product, and in the engineering work to produce it.  This is something all software projects feel.
+
+
+h3. Unit tests
+
+Google has a "testing blog":http://googletesting.blogspot.com/ where "Miško Hevery":http://misko.hevery.com/ is brilliant in every post.  I can thank Miško for much of my understanding in the needs of unit testing in Java.  Of course, he writes about Java (and I do Java during day-hours) though my favourite language is Erlang.  This makes me notice what applies to Erlang, and what is unecessary in Erlang. (Oh, and while I'm dropping links, the rest of my understanding of unit testing Java comes from "guice":http://crazybob.org/2008/05/guice-google-io.html. "Guice tutorial":http://docs.google.com/Doc?id=dd2fhx4z_5df5hw8)
+
+
+h3. Dysfunctional programming?
+
+First of, the word *functional* in FP does not relate to functional/dysfunctional.  It is a made up word using latin suffix "-al" which means something relating to, as in (**giggle**) anus/anal or vagina/vaginal. Basically, FP is programming related to functions.  But very important: functions as they are known in math. Stone-cold side-effect free ones that map from one set of values to another set of values.  I used to think it was just a bunch of mathematicians that wanted a programming paradigm name to flaunt.  
+
+
+To actually get unit tests written I can't say it better myself: ??there are no tricks to writing tests, there are only tricks to writing testable code??:http://googletesting.blogspot.com/2008/08/by-miko-hevery-so-you-decided-to.html.  A common pitfall is that your codebase is too monolithic.  Everything seems to depend on each other so you can't write a single automated test without having to rig a real SQL database and make real HTTP requests, or anything else external.  This is an effect of having hard-coded dependencies that should have been parametric to the code using them.
+
+
+h3. Yay, independence day
+
+In java the hard-coded dependencies come from using @new@ on specific dependant classes and from static methods to get singleton objects. In erlang, they come from calling registered processes.  The solution is the same in both cases. Provide the dependency as a parameter.  In java this means through the constructor, in Erlang it means through the process @spawn@ parameters (or indirectly through gen_server init args).  This simple practice makes it possible to provide _mocks_.  A mock is something that walks and talks like the actual dependency, but behaves in a way that aids in your test.
+
+
+Hey, thanks for reading this far.  I'm getting to the point now!
+
+
+h3. Getting to the point
+
+Once you have split your hard dependencies, you can write unit tests on modules. And they all go something like:
+<pre>
+  assertEquals(42, theQuestion("life?"));
+</pre>
+
+
+Or perhaps I should use a purely functional math function as the example:
+<pre>
+  assertEquals(3, sqrt(9));
+</pre>
+
+
+We are writing our testable code so that we can call the side-effect free parts, parts where we have control of all inputs and can check all outputs.  Writing testable java code means that you focus on making sure you can call pure functions. It just doesnt look that way with all the mocks and abstract classes that your test implements to shield off side-effects.  Underneat it all it is Functional Programming. Or is it just a coincidence?
+
+
+Erlang already foster you to write side-effect free code since values are immutable and variables are single assignment.  Erlang is not pure though, since you can still send and receive messages from everywhere in your code.  And you can write or read from ets tables anywere, or access the process dictionary.  Though, interestingly. These non-functional practices are exactly the same thing that makes your code harder to test!  Koinkidink again?
+
+
+h3. Another observation related to concurrency
+
+If we look at Haskell, which is a bit more strict about side-effects than Erlang.  In Haskell you can not perform side-effects without the "monad":http://en.wikipedia.org/wiki/Monad_(functional_programming).  If you were not called with the Monad then you can only return a description of the side-effects you want performed to your caller, until you get to some function that has the Monad and can act on them.
+
+
+Well, unless you take the monad with you wherever you go so you can always perform side-effects. That makes Haskell appear like an ugly version of visual basic.  You will be sad and Haskell will be sadder.
+
+
+If you stop fighting the language, you will slowly get to think of side-effects as "costly".  You rather accumulate lists of side-effects to be done.  You will device problem solutions that minimizes the checkpoints in your program that need side-effects. Erlang "yaws":http://yaws.hyber.org/ is a good example of this programming style. The dynamic page does not tell any http reply object to do anything, instead it returns what should be done to it (such as sending a redirect):
+
+<pre>
+  out(_Arg) ->
+      L="http://www.google.com/search?num=20&hl=en&lr=lang_en%7Clang_sv&q=yaws",
+      {redirect, L}.
+</pre>
+
+
+You will start to think of side-effects as how they must or must not happen in order. File copying must obviously read the source file before it can write to the destination file. But it is not always that apparent. The logging of a web request must not necessarily happen before the web request itself is replied to. Unless logging of successful reply is needed, but is it? That is an example of what you will think about.
+
+
+Much of the speed of Erlang is from removing unecessary ordering of events.  It is so trivial to start a process or ask some other process to do something for you, and then continue with that which must happen in order.  This gives the user that snappy feeling.
+
+
