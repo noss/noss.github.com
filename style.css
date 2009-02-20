@@ -19,16 +19,17 @@ span.date {
   font-size: x-small;
   text-align: right;
   margin-top: -2em;
+}
 
 
 #nav {
   color: gray;
   background-color: white;
-	font-weight: bold;
+  font-weight: bold;
 }
 #nav ul,
 #nav ul li {
-	padding: 0;
+  padding: 0;
   list-style: none;
   display: inline;
 }
