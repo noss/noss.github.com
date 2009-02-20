@@ -3,6 +3,10 @@ body {
 	margin: 0 auto 0 150px;
 }
 
+h1, h2 {
+  text-align: center;
+}
+
 span.date {
 	color: #aaa;
 	font-size: small;
@@ -11,6 +15,11 @@ span.date {
 #post {
 	text-align: justify;
 }
+#post p.meta {
+  font-size: x-small;
+  text-align: right;
+  margin-top: -2em;
+
 
 #nav {
   color: gray;
@@ -22,4 +31,10 @@ span.date {
 	padding: 0;
   list-style: none;
   display: inline;
+}
+#nav a {
+  text-decoration: none;
+  color: black;
+  background-color: #ccc;
+  padding: 5px;
 }
