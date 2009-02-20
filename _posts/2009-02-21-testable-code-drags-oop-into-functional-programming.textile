@@ -7,7 +7,7 @@ h2. {{ page.title }}
 
 p(meta). 2009-02-21
 
-I think I am on to something about functional programming. Something that will make it easier to explain FP(functional programming) to someone with their head stuck in object-oriented programming. It takes a certain insight to test-driven design though.  I'll try to get my thoughts out on the subject in this long article.
+I think I am on to something about functional programming. Something that will make it easier to explain FP(Functional Programming) to someone with their head stuck in object-oriented programming. It takes a certain insight to test-driven design though.  I'll try to get my thoughts out on the subject in this long article.
 
 
 One of my favourite blog topics is quality and testing. Software engineering produces very complex systems, it is amazing that anything works at all really.  But to allow us to keep up with the ever increasing complexity demands and cost pressure, we need to look at how to improve quality both in the end product, and in the engineering work to produce it.  This is something all software projects feel.
@@ -37,12 +37,14 @@ Hey, thanks for reading this far.  I'm getting to the point now!
 h3. Getting to the point
 
 Once you have split your hard dependencies, you can write unit tests on modules. And they all go something like:
+
 <pre>
   assertEquals(42, theQuestion("life?"));
 </pre>
 
 
 Or perhaps I should use a purely functional math function as the example:
+
 <pre>
   assertEquals(3, sqrt(9));
 </pre>
