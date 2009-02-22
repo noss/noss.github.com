@@ -1,0 +1,41 @@
+---
+layout: post
+title: A different kind of sadomasochist
+---
+
+h2. {{ page.title }}
+
+p(meta). 2009-02-22
+
+I just read "Programmers and Sadomasochism":http://alumnit.ca/~apenwarr/log/?m=200902 and my first reaction was more along the lines of:
+
+"Uh... align=right? Give that div a css-class and style it up using text-align:right in CSS."
+
+I guess I am a different kind of sadomasochist.
+
+h3. About "broken" html
+
+Humans write HTML. The fact that browsers are lenient about mistakes is what made the web succeed (the web as based on http and html). Without it we would never have reached the break-even point where there is just too much useful things contributed to the web to decide to not publish more to it. 
+
+If the web had instead been built on a stricter markup language, lets call it SGML. Then that format would had just been a historical accident, it had quickly been replaced with a simpler alternative that works better In The Real World(tm).
+
+h3. Disclaimer
+
+As a web developer, you should of course validate your html pages with the "w3 html validator":http://validator.w3.org/. I would avoid the XHTML doctypes and go for the HTML ones (actually, the transitional/loose one):
+
+* <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+* <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+* <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+
+The advantages of using a doctype are two: 
+
+* The validator will complain to you about not having one, and produce good results when you have one
+* It trigs something called "doctype switching" in browsers, turning them into "standards compliant mode" in how they interpret HTML and even CSS. This is especially interesting for IE and how it measures widths of boxes in relation to padding and margin.
+
+h3. PS
+
+I dont much like the use of XML for data-exchange either. The format doesnt even have integers, just text required to parse to an integer. How lame is that in data exchange!?
+
