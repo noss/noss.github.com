@@ -20,6 +20,11 @@ span.date {
   text-align: right;
   margin-top: -2em;
 }
+#post pre {
+  background-color: #f7f7f7;
+  color: black;
+  padding: 1ex 0;
+}
 
 
 #nav {
