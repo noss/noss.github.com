@@ -3,7 +3,6 @@ layout: post
 title: Article ideas feedback
 ---
 
-h2. {{ page.title }}
 
 p(meta). 2009-02-15
 

@@ -3,7 +3,6 @@ layout: post
 title: Testable code drags OOP into Functional Programming
 ---
 
-h2. {{ page.title }}
 
 p(meta). 2009-02-21
 

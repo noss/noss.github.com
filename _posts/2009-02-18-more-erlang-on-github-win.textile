@@ -3,7 +3,6 @@ layout: post
 title: More-Erlang-at-Github WIN!
 ---
 
-h2. {{ page.title }}
 
 p(meta). 2009-02-18
 
