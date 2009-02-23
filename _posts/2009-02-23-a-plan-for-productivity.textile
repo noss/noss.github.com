@@ -3,8 +3,6 @@ layout: post
 title: A plan for increased productivity
 ---
 
-h2. {{ page.title }}
-
 p(meta). 2009-02-23
 
 Sometimes it feels like I spend days working and get nothing done. But there is a cure for that.
