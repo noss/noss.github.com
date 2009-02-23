@@ -1,0 +1,33 @@
+---
+layout: post
+title: A plan for increased productivity
+---
+
+h2. {{ page.title }}
+
+p(meta). 2009-02-23
+
+Sometimes it feels like I spend days working and get nothing done. But there is a cure for that.
+
+The cure is to give your subconcious a chance to forget and drop issues by planning every work task in small, concrete and objectively finishable chunks.
+
+* Small, so you can finish it in a few hours at most, which helps the task to be
+* Concrete, so you know what work to put in, there is no vague details or planning to be done, so it is
+* Objectively finishable, and by that I mean that you know when you are done. No looking back to if you could have done a better job or if it was necessary at all etc.
+
+This always get me into "flow":http://en.wikipedia.org/wiki/Flow_%28psychology%29. Once you are done, you will not have a nagging feeling that you should go back and do something different. Because that is not the rules you have set for yourself. The task was finished because you had defined an objective measurement of what finished meant, and this before you started.
+
+h3. Sounds like scrum?
+
+Yes it does! Scrum is all about setting up a "time-box" and concrete backlog items. With tdd you must have objective goals, because you cant write an automated test for "attractive gui" or "well written documentation".
+
+h3. How I use this
+
+Together with a few entreprenurial friends I have regular meetings where we discuss things to finish, and we each set up a "sprint backlog". Typically we have dinner together during this get-together.
+
+We work in 2 week sprints. So we have a sprint demo at the end, where we show each other what we have produced, and excuse ourself for what didnt make it and why we failed. This is because there should be some form of shame of not finished what you have taken on. During the sprint planning at the start.
+
+Each backlog entry is time-estimated, and continously updated to how many hours left there are on each task. Typically you learn that something is much easier than expected, and other things are much more difficult. I have a google spreadsheet for this if anyone is interested. Nothing fancy really.
+
+As a guy without kids, and 2.3 training evenings per week, I manage to squeeze out 20h of backlog items while still working 40h weeks.
+
