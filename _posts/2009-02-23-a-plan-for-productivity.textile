@@ -25,7 +25,7 @@ h3. How I use this
 
 Together with a few entreprenurial friends I have regular meetings where we discuss things to finish, and we each set up a "sprint backlog". Typically we have dinner together during this get-together.
 
-We work in 2 week sprints. So we have a sprint demo at the end, where we show each other what we have produced, and excuse ourself for what didnt make it and why we failed. This is because there should be some form of shame of not finished what you have taken on. During the sprint planning at the start.
+We work in 2 week sprints. So we have a sprint demo at the end, where we show each other what we have produced, and excuse ourself for what didnt make it and why we failed. This is because there should be some form of shame of not finished what you have taken on. 
 
 Each backlog entry is time-estimated, and continously updated to how many hours left there are on each task. Typically you learn that something is much easier than expected, and other things are much more difficult. I have a google spreadsheet for this if anyone is interested. Nothing fancy really.
 
