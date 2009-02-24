@@ -1,0 +1,31 @@
+---
+layout: post
+title: Software design with low coupling
+---
+
+p(meta). 2009-02-24
+
+The idea in dependency injection is that you should depend on an interface instead of a specific implementation. That way the implementation that implement the necessary interface can be injected, facilitating low coupling among components in your software.
+
+Low coupling is nice for writing testable code, since you can inject your mock/dummy objects that facilitate your test-scenario. Which means you dont have to set up all components of your system for one small test. The test can run in isolation, and perhaps even concurrently with other tests.
+
+h3. Where do you draw the line ?
+
+But how much should be injected? *I'm asking since I actually want to know good rules of thumb.* So far the only thing I have found is (actually I mailed asking Miško, and he had already written this) "To new or not to new":http://misko.hevery.com/2008/09/30/to-new-or-not-to-new/. But I find it to be a bit lacking and not matching with the actual problem situations when coding. It does define the useful adjectives "Newable" and "Injectable" though! (Read it!)
+
+The thoughts I have had so far: 
+
+* objects that you @new@-constructed (Newables) and stored as a member variable in your class, those objects should not escape out from the object. They are your internals and part of the logic. Other code should certainly not have dependencies into your internals.
+* objects passed through the constructor (Injectables) should not escape out from the object either (by escaping i mean to be returned from methods or stored in objects passed to methods), if other objects need them, they should likewise be injected to them at object construction. Feel free to return objects methods on your injectable would return to you though.
+
+This leaves a few remaining objects, such as those that need to be constructed and returned from the method (or passed to an argument object). Lets call them "Escapable" objects. If these need injectable objects in the constructor you should resort to something like "the guice provider class":http://google-guice.googlecode.com/svn/trunk/javadoc/com/google/inject/Provider.html. A Provider knows how to construct an object, and it is injected to you. If the Escapable need both injectable and newable it might be an architectural flaw (is it possible for you to pass newable objects post-construction, using setters?).
+
+h3. Summary for Erlang 
+
+Each process in erlang has its own isolated memory. So naturally all your values are internal, and you can only send out snapshots from current values. So it is in a way impossible to let your internals leak out. And Erlang do provide a healthy low coupling between processes. This makes me feel that me and "The Law of Demeter":http://en.wikipedia.org/wiki/Law_of_Demeter agree. Dont touch your friend's private parts!
+
+Injectables in Erlang come in the form of other processes to communicate with. Here the big no-no is to hard code names to registered processes, they should still be injected by args to "spawn":http://www.erlang.org/doc/man/erlang.html#spawn-3 or "gen_server":http://www.erlang.org/doc/man/gen_server.html#start_link-3 init-args. The registered process is just a convenience for your "supervisor":http://www.erlang.org/doc/man/supervisor.html to get external references when wiring you up. Your automated test wants to supply a mock process there.
+
+If you need to construct new processes that need injectable closures, the Provider solution from java/guice is potentially a bit dangerous. The natural way would to pass a fun that returns newly spawned processes each time called. But for long running processes it is not safe to hold on to closures from other processes, they can go bad after code upgrades. Instead it would be safer to inject a process that you can ask to construct an object for you.
+
+
