@@ -1,0 +1,14 @@
+---
+layout: post
+title: Writing unit tests is reinventing functional programming in non-functional languages 
+---
+
+p(meta). 2009-02-25
+
+So yesterday I posted this to the erlang list about "testable code and functional programming":http://www.erlang.org/pipermail/erlang-questions/2009-February/041969.html. The mailing list followups disappointed me, since people just focused on the use of "academic". Maybe that hurt some feelings.
+
+Today I get up just to see a similar argument about "testable code and functional programming at hacker news":http://news.ycombinator.com/item?id=493963.
+
+Hey! Someone submitted my story! This is a big day for me. :)
+
+
