@@ -11,4 +11,53 @@ Today I get up just to see a similar argument about "testable code and functiona
 
 Hey! Someone submitted my story! This is a big day for me. :)
 
+h3. Repeated again: 
+
+I used to think that I liked erlang programming just because it was
+quite academic, and that this was just a personal preference. But I
+have come to realize that side-effect free programming is easier to
+reason about. Not always easier to write though. Being easier to
+reason about means that I can imagine more execution in my head than I
+can in languages that rebind variables and mutate values. Because
+those destructive changes defines a before-change, and after-change,
+sequence, order, and there are only so many steps one can keep the
+mind without the brain starting to lie to you, filling out the blanks
+without telling you.
+
+I recently read an article published in idg.se where Erik Stenman of
+kreditor was quoted saying that (something like) java systems grow
+complex over time in a way that Erlang does not as much. This is
+something I experience with Java systems. In Java there is no cost in
+adding more things that keep state. It is said that you just
+encapsulate state it in your object, but that state is not as
+encapsulated as you think. Problems are fixed by adding more things
+with state, and more. and more. Pretty soon you have behavior that
+depends on several hundred mutable variables, and the code-base feels
+hard to grasp, difficult to reason back into previous code execution
+to see the "big picture". It makes architectural fixes more difficult.
+And the problems accelerates, since more quick fixes are added. (I
+really need to get better at describing this.)
+
+The funny thing is that the OOP world have found one way to manage the
+complexity and the code-bases that grow ugly: They are using unit
+tests, and practice the art of writing testable code. ("Testable code"
+is something that is simple to write unit tests for. )
+
+* You make it very easy to supply the dependencies to code under test
+need. Avoid things that go out and grab values from global state.
+* You avoid side-effects, and the side-effects you need (database
+updates, writing files etc) you make sure that you perform with a
+layer of indirection so that during tests you can replace the real
+object with (for example) a do-nothing mock.
+
+What they are doing is that they are making as much of their code as
+possible to be side-effect free and placing all that code in one
+method so it can be called from a unit test. They are concentrating
+side-effects to well-defined places, carefully avoiding mixing
+side-effects and testable/test-worthy logic.
+
+What they are doing is that they're reinventing functional programming.
+
+*PS*
+Anyone care to make my argument better or shoot it down?
 
