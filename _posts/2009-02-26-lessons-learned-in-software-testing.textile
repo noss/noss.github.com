@@ -1,0 +1,30 @@
+---
+layout: post
+title: Lessons learned in Software Testing
+---
+
+p(meta). 2009-02-26
+
+Today I left work early, the electric power went out at 2 PM. To have something to excuse myself for leaving early I brought a book from the company library (actually, a single shelf :). The title is "Lessons learned in Software Testing":http://www.amazon.com/Lessons-Learned-Software-Testing-Kaner/dp/0471081124.
+
+Scanning it quickly it seemed to have some valuable insights, that is why I brought it with me. After reading a good part of it, I think that if you work with QA / Testing of software this is a must-read. Now, I'm a programmer, but I like food for thought in how to make software engineering better.
+
+The first thing I learned from the book is that I am not a very good tester. I do optimistic testing. I only check that things when used as intended do sensible things. That is of course useful, but, testing how things work when used in different ways than intended is often more interesting.
+
+There are 11 Chapters with small page-sized lessons:
+
+* *The role of the tester*: Some career advice. What arguments to take and not. What responsibilites to reach for and to avoid.
+* *Thinking like a tester*: Some self-reflection on your thinking. Makes you know what happens in your brain. 
+* *Testing Techniques*: Basically good names and classification so you can talk about various methods and attack angles on testing.
+* *Bug Advocacy*: A lot about how to communicate bugs with others. How to use tools. How processes around bug reports are to be handled.
+* *Automating Testing*: This is the chapter that made me take the book with me. I'm working on an internal project to introduce more automated testing at work. Developers and QA have been brainstorming and exchanging knowledge for very many meetings now. So I have spent a lot of thought on what automated testing is good for. I think this is why that the 39 lessons on these 32 pages all made me think "AH! Why didn't I read this book 6 months ago?". If you're starting a strategy for automated testing, this is a must-read.
+* *Documenting Testing*: I haven't read this far yet. Nor anything after it.
+* *Interacting with Programmers*
+* *Managing the Testing Project*
+* *Managing the Testing Group*
+* *Your Career in Software Testing*
+* *Planning the Testing Strategy*
+
+All in all there are 293 lessons together in the chapters, and that on 245 pages. The way the book is written, one should probably pick it up again and again to compare it to the reality you work in. Some lessons I did not understand now will probably appear much more sensible once I have experienced the situation and the problems.
+
+
