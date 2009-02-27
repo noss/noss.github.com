@@ -1,0 +1,24 @@
+---
+layout: post
+title: Not so useful, Dear Github
+---
+
+p(meta). 2009-02-27
+
+This is a little usability problem that keeps annoying me at github. The git repo address that is displayed on the project webpage at github, it has some javascript on it that change the webpage when I select it. The text turns into a textbox, to help me cut and paste it.
+
+Apparently there was "something wrong with the clone urls":http://github.com/blog/341-copy-and-paste-is-so-yesterday which made it worth to add those icons to do heavy duty select-and-paste work for me.
+
+But... no. 
+
+It doesnt work.
+
+That technology copies into the selection buffer. I need to mark ordinary text so i can paste it into an xterm. I use the traditional xorg xterm without silly menues. Middle button pastes from the X cut buffer.
+
+It would work better if it just printed out the git repo address as plain text and added the href links after it.  (Perhaps some margins around the text so that it is easier to aim.)
+
+Ohh! And github would do well if it removed some javascript magic. On my slow machine I often get asked by firefox if I want to continue running the long-running scripts on github pages. Which also have the even more annoying affect that all my firefox tabs dont render while firefox is bogged down.
+
+PS. Dont get me wrong github. I'm addicted to you. I should seriously look into paying even though you have such a good free plan.
+
+
