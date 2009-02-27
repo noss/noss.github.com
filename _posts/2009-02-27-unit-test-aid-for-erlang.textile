@@ -1,0 +1,30 @@
+---
+layout: post
+title: Unit test aid for Erlang
+---
+
+p(meta). 2009-02-27
+
+I noticed "erlymock":http://sheyll.blogspot.com/2009/02/erlang-mock-erlymock.html today. It's for mocking dependencies in Erlang so that tests can be performed in isolation.
+
+I have just studied it briefly, but im not sure this is how I would want to work with mocks in erlang unit tests. I imagine a unit-test that uses something like:
+
+<pre>
+  GenServerFun =
+     fun (call, {do_stuff, X}) ->
+       {reply, X}
+     end,
+  GenServerMock = mock:gen_server(GenServerFun),
+  gen_server:call(GenServerMock, {do_stuff, 1}).
+</pre>
+
+This would replace the full gen_server (with the separate module and all the behavior callbacks). Preferably the mock-servers should not need internal state. But it would not be difficult to add.
+
+h3. Testing in the small
+
+Something is to be said about putting most of your effort into unit tests. A unit test is least fragile. They take the smallest amount of time to develop, and real unit tests should not break if anything else than the code under test is changed.
+
+The higher you get in testing, the more likely it is that you will break tests when you change things in intended ways.
+
+PS
+*Not to self*, maybe I should implement that mocking library, I've got all weekend.
