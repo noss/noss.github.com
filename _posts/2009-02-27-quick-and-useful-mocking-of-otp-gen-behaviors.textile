@@ -8,7 +8,7 @@ p(meta). 2009-02-27
 
 So earlier today I theorized about mocking OTP gen behaviors.
 
-This is the resulting project "emock: Erlang Mocking":http://github.com/noss/emock/tree
+This is the resulting project "emock: Erlang Mocking":http://github.com/noss/emock/tree. There is even "a little bit of documentation":http://github.com/noss/emock/tree/master/doc.
 
 The code is so tiny that it would probably be no problem to get this added to eunit which is already in OTP now. I'll try to get in touch with the responsible developer there once I use this a bit.
 
