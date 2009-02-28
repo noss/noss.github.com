@@ -1,0 +1,14 @@
+---
+layout: post
+title: Testable code means FP
+---
+
+p(meta). 2009-02-28
+
+I just noticed that there are more people that have realized that "OO side-effect free programming":http://www.programmersparadox.com/2008/08/27/oo-side-effect-free-programming/ leads to more testable code, and that it is very similar to functional programming. That is pretty much exactly what I said about how "unit tests make you use functional programming practices":http://noss.github.com/2009/02/25/writing-unit-tests-is-reinventing-functional-programming-in-non-functional-languages.html.
+
+Today I need to write some test-cases to demonstrate how to use "emock":http://github.com/noss/emock for a realistic code-base. I need to make a convincing argument that it is a Good Thing(tm) to make your dependencies parametric to startup code. This is because I got this remark earlier today:
+
+bq. noss: I mean, I don't want to code in a way that is enforced by my testing framework, but I want to code and have the framework adapt. (that's only possible to a degree, of course)
+
+
