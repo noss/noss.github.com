@@ -44,3 +44,20 @@ span.date {
   background-color: #ccc;
   padding: 5px;
 }
+
+.highlight .k {
+  color: blue;
+}
+
+.highlight .p {
+  color: #aaa;
+}
+
+.highlight .nv {
+  font-weight: bold;
+}
+
+.highlight .nn {
+  color: green
+}
+
