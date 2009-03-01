@@ -17,3 +17,5 @@ Oh. And dialyzer should be included in this build process as well.
 
 Lots of infrastructure setup... :/
 
+Update: Perhaps the "extensible build system and a collection of templates":http://code.google.com/p/fwtemplates/wiki/FwTemplateErlangWalkthrough could be what I want.
+
