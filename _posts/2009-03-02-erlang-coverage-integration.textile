@@ -1,0 +1,19 @@
+---
+layout: post
+title: Erlang coverage integration
+---
+
+p(meta). 2009-03-02
+
+So I am trying to set up a sweet automatic test setting for an Erlang codebase. The tools are in OTP already. There is "cover":http://erlang.org/doc/man/cover.html for coverage analysis. There is "eunit":http://erlang.org/doc/man/eunit.html for running unit tests xUnit-style. There is "make":http://erlang.org/doc/man/make.html for compiling.
+
+But it is not that simple to Just Use It(tm). I'm diving into the source for make.erl to see if there is some hidden feature to make it cover-compile my erl files for me. If it does not, then I will have to use plain old Makefiles to compile instead.
+
+The slightly frightening application "ct":http://erlang.org/doc/man/ct.html seem to be able to "build and run test suites and generate reports":http://erlang.org/doc/apps/common_test/run_test_chapter.html. There is at least some kind of "integration with cover in ct":http://erlang.org/doc/apps/common_test/cover_chapter.html#cover. 
+
+I just wish I could find some code that uses Common Test already. 
+
+Oh. And dialyzer should be included in this build process as well. 
+
+Lots of infrastructure setup... :/
+
