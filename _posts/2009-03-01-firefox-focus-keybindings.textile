@@ -1,0 +1,30 @@
+---
+layout: post
+title: Firefox's focus keybindings
+---
+
+p(meta). 2009-03-01
+
+I have a slight pain in my right shoulder from too much mousing, so I'm always inclined to to learn keybindings for those short interrupting needs to reach for the mouse.
+
+As such, the control-l to give focus to the address bar is lovely, and if i press tab, focus moves over to the search field (or, more accurately, the google field :). That is how to google!
+
+Moving between tabs there is alt-1 to alt-8, which will change to tab 1 through 8. Alt-9 will change to the right-most tab. This pretty much makes it annoying to have more than 9 tabs open. (Oh, and if you develop web sites, please do pay attention to the favicon/shortcut icon. When many tabs are open, the title will be truncated and the icon is the last thing displayed.)
+
+For in-page searching there is control-f which makes a search panel appear below the page. Pressing control-f while the panel is visible will give the search field in it focus. Pressing escape will hide it. (What I miss here is the ability to find a link in the page and using only key-bindings follow it/open in a new tab.)
+
+What I have not found so far:
+
+* A way to focus on the page itself. A single keybinding and have focus in the page so I dont have to tab the firefox focus to the page.
+* Moving to adjacent tabs.
+* Opera's keyboard-driven link navigation (using arrow keys to move the focus between links, being able to open the focused one).
+
+PS.
+
+It is also quite rewarding to open up the keyboard shortcut help in google reader (press ? when the page has focus). Shift-N and shift-P goes up and down in feeds. shift-O will open the focused feed. Plain n and p will move focus between items within a feed, and o will open the focused one.
+
+Shift-a will mark everything as read in the currently open feed. And j and k are shortcuts to n+o and p+o, that is, move to next/prev and open it.
+
+
+
+
