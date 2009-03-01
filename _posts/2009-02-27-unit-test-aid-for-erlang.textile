@@ -10,12 +10,14 @@ I noticed "erlymock":http://sheyll.blogspot.com/2009/02/erlang-mock-erlymock.htm
 I have just studied it briefly, but im not sure this is how I would want to work with mocks in erlang unit tests. I imagine a unit-test that uses something like:
 
 <pre>
+{% highlight erlang %}
   GenServerFun =
      fun (call, {do_stuff, X}) ->
        {reply, X}
      end,
   GenServerMock = mock:gen_server(GenServerFun),
   gen_server:call(GenServerMock, {do_stuff, 1}).
+{% endhighlight %}
 </pre>
 
 This would replace the full gen_server (with the separate module and all the behavior callbacks). Preferably the mock-servers should not need internal state. But it would not be difficult to add.
