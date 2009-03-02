@@ -1,0 +1,40 @@
+---
+layout: post
+title: Initial success with common_test!
+---
+
+p(meta). 2009-03-03
+
+So I read through the "common test userguide":http://www.erlang.org/doc/apps/common_test/part_frame.html again and also I noticed that "scalaris":http://code.google.com/p/scalaris/ uses common_test for its test suites. Equipped with some realistic testing and more insight to common_test I just threw myself into using ct for running my unit-tests.
+
+The "most essential part is that you have to install common_test":http://www.erlang.org/doc/apps/common_test/install_chapter.html. It is not difficult or anything.  See my short summary:
+
+# Create a temporary dir @$SOMEWHERE@. 
+# Go ahead and @cp -a@ common_test and test_server from your erlang source dir. 
+# mv common_test to common_test-VSN where VSN is whatever common_test/vsn.mk says. In my case it is common_test-1.3.4 
+# Do the same process for the test_server directory (by its vsn.mk).
+# run @./common_test-VSN/priv/install.sh $SOMEWHERE@
+
+Common test will be storing reports and test-run logs in this directory. 
+
+The simple suite i wrote was this (common_test looks for *_SUITE to find tests):
+
+{% highlight erlang %}
+-module(iserve_master_SUITE).
+-compile(export_all).
+
+all() ->
+    [unittest].
+
+unittest(_Config) ->
+    eunit:test(iserve_master_test),
+    ok.
+
+{% endhighlight %}
+
+Then I ran @$SOMEWHERE/priv/bin/run_test -dir ~/src/gits/iserve/test@ (it is the dir where my iserve_master_SUITE.erl reside). A quick execution later and I could find a @$SOMEWHERE/index.html$ file where i could easily browse the generated report.  Running the test suite several times and common_test accumulates historical test results.
+
+It is a bit annoying that I had to do all these things to start, but in retrospect it did not hurt that much. The important thing is that it did work. 
+
+I'm not quite there with coverage reports yet, nor happy-happy-fun-fun single-command-run-all-tests setup. I feel much more likely that I will get there though.
+
