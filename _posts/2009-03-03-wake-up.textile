@@ -1,0 +1,11 @@
+---
+layout: post
+title: Wake up!
+---
+
+p(meta). 2009-03-03
+
+This is probably "the funniest thing said in the defence of C++":http://esr.ibiblio.org/?p=532#comment-227613. Sadly I am not sure it was said with the amount of of irony I read into it.
+
+bq. Wake up, it’s 2008. std::tr1::shared_ptr<> exists, and is readily available.
+
