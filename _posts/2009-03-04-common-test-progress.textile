@@ -1,0 +1,23 @@
+---
+layout: post
+title: Common Test progress
+---
+
+p(meta). 2009-03-04
+
+Another day, a little bit wiser than yesterday.
+
+Apparently other people have been blogging about "erlang's common test":http://streamhacker.wordpress.com/2008/11/26/unit-testing-with-erlangs-common-test-framework/. And he's much more succinct than me.
+
+Also: Copying common_test and test_server from the installed erlang, and the version suffixes are already there. I have coverage working on "emock":http://frihjul.net/emock. It just worked. Temporarily I installed common_test like this (current working directory in the emock checkout topdir):
+
+{% highlight bash %}
+	$ mkdir etc etc/log
+	$ cd etc
+	$ cp -a /opt/erlang-R12B-5/lib/erlang/lib/common_test-1.3.4 .
+	$ cp -a /opt/erlang-R12B-5/lib/erlang/lib/test_server-3.2.4/ .
+	$ ./common_test-1.3.4/install.sh $PWD
+{% endhighlight %}
+
+Then run @make test@ and the coverage reports are there. And that is how far I got tonight.
+
