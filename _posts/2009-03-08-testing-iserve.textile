@@ -1,0 +1,16 @@
+---
+layout: post
+title: Testing Iserve
+---
+
+p(meta). 2009-03-08
+
+I probably broke iserve build-simplicity tonight. I'm still fumbling with common test. Writing a *_SUITE.erl is simple and straight-forward. What is difficult is to setup common_test cleanly. 
+
+And as it is appreciated that "setting up iserve is a newbie delight":http://pokingarounderlang.wordpress.com/2009/03/07/newbie-test-iserve/ it is probably a bad idea to make it difficult to build.
+
+For now I am going to leave it like this. Hopefully someone can take mercy on me and help me organize the mess I have in my test/-directory.
+
+PS.
+I think I committed a dependency on "emock":http://frihjul.net/emock as well. Just for the tests though.
+
