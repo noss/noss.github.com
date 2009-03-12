@@ -1,0 +1,13 @@
+---
+layout: post
+title: Userspace threading benefit is erased by performance gains over the years
+---
+
+p(meta). 2009-03-12
+
+Being an Erlang developer it is quite strange to see something like this about "userspace threads in java":http://java.sun.com/docs/hotspot/threads/threads.html.
+
+bq. Version 1.1 is based on green threads and won't be covered here. Green threads are simulated threads within the VM and were used prior to going to a native OS threading model in 1.2 and beyond. Green threads may have had an advantage on Linux at one point (since you don't have to spawn a process for each native thread), but VM technology has advanced significantly since version 1.1 and any benefit green threads had in the past is erased by the performance increases over the years. 
+
+So now we know that.
+
