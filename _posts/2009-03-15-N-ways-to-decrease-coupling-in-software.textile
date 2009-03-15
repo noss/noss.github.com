@@ -1,0 +1,56 @@
+---
+layout: post
+title: N ways to decrease coupling in software
+---
+
+p(meta). 2009-03-15
+
+Coupling sneaks up on your software project silently. Every quick-fix sums up to a mudball software design, something far from your initial intentions.
+
+There are a few reasons why software projects grow until they stall, the costs and risks to changing the smallest detail become much too high to make financial sense. These are factors I have observed to play a part:
+
+* Bad understanding of high coupling among developers. What it does to the code base and how it makes future software redesigns expensive.
+* Stressed project deadlines where software is shipped that is far from ready quality-wise.  Developers that dont have enough pride in their work to actually produce a good product, or are easily coerced to prematurely saying the software is done.
+* Problems with programming languages and tools. 
+
+These points need further explainations.
+
+h2. Bad understanding
+
+If an accounting package starts out with a good separation of concerns, such as the model-viewer-controller architecture, where the view uses the external interface of the model. That means it will be easy to to add new views for the model, a desktop interface could be replaced or completed with a web based interface. But with inexperienced programmers this clear separation can start to break down, maybe the currently single view implementation, the desktop, passes classes directly to the model, for the model to populate with values. Suddenly the model has coupling with a specific user interface, additional projects do not only bear their own implementation costs, but also the changes to other components.
+
+This failure to understand problems related to high coupling is often only gained by experience. A focus on writing automatic tests, at small unit-test level or higher automated integration tests, will display where there is coupling. In the above accounting package example, if a test needs to make sure the values are correct in the model, it will quickly be obvious that it is a bad idea to have a coupling to a large user-interface library, it makes writing the test fixture a headache. However, if it is easy to test anyway, it will also not pose a large problem if a different view would be added.
+
+Automatic tests give direct feedback in how bad any given coupling is. Favouring low coupling.
+
+h2. Stressed project deadlines
+
+* Managment typically want to deliver quickly, because that means money-flow will start. This is understandable and reasonable, that is where the money comes from.
+* Project leaders are typically pressed between demanding managment and vague developers. They want to please everyone, but they know the direction money flows and, rightly so, takes order from managment.
+* Developers do what they do well, and avoid what is ill understood in the project requirements. Requirements are vague or incomplete. They form their own ideas and get to designing and writing software, because that is what they're hired to do, not to contact the customer's users and see what they need.
+
+Try to get a different customer relation where features are each valued (as in money) by the customer and time-estimated by the developers. Use agile methods with fixed timeframe sprints, where the highest yield features are implemented first. Basically, deliver the smallest and most valuable feature first. 
+
+Make the customer understand that while the aim is to implement a system that is useful after each short sprint, the system might not be useful _enough_ to actually deploy. The customer needs to take an active part and monitor what is being developed with product prototype demos. Explain that they actually get more for their money because they can make sure they get exactly what they need and not just an interpretation of a boring old requirements document, and that it will not take more time than the traditional: here-is-a-requirements-documents, see-you-in-six-months.
+
+Implementing no more features than necessary minimizes things that can go wrong.
+
+h2. Tool problems
+
+The least that is needed is a unit-test framework. All languages have them. All unit-test ought to be used with code-coverage analysis. A code-coverage report is a great way to realize behaviour in the code which has not been tested. The solution is either to test the code or remove the code. Make sure all developers know how to run the unit-test suite and read the results.
+
+Some languages provide the features needed for low-coupling between parts of the software, but have a big difference in effort in doing the quick way and the correct way. In java it takes quite a lot more typing to create an interface and a class to implement the interface, so it can losen up coupling, instead of calling the class one wants to avoid coupling with. This can be remedied by better editors that are language-aware.
+
+There are also conceptual "holes" with some programming languages. In OO(object oriented) programming the synchronous method call is a first-class concept. It is often difficult to break out of habit and implement a asynchronous handover of values between components. It is not impossible but it is simply not something one considers each time values need to be transferred between components. In Erlang, function call and messaging are both first class concepts, so developers will naturally think about what is needed on-a-case-by-case basis. Always using synchronous calls means that you get a coupling on the relative time to complete something (this particular problem always come up in RPC(remote procedure call), each call can easily take 1ms to finish instead of 1ns).
+
+Also conceptually, a system that produces values does not really need to know who consumes the values. A message-queue based communication channel between components means that you only need to know your queue name, but not where values go or come from. Not many software designs start out this way, it is something implemented first when need arises. For the OO world this is the Observer pattern.
+
+Programmers that know many programming languages (and their concepts) have a larger potential for making good designs in whatever language they use.
+
+See also:
+
+* "Software design with low coupling":/2009/02/24/software-design-with-low-coupling.html
+* "Coupling (computer science)":http://en.wikipedia.org/wiki/Coupling_%28computer_science%29
+* "The testability explorer blog":http://misko.hevery.com/
+
+
