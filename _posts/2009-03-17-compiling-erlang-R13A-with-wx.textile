@@ -1,0 +1,134 @@
+---
+layout: post
+title: Compiling erlang R13A including wx
+---
+
+p(meta). 2009-03-17
+
+Compiling R13A was not a breeze, wxErlang had a few dependencies for it to work. My system is ubuntu 8.04.
+
+* wxWidgets version 2.8.0 or higher!
+** libwxbase2.8-dev
+** libwxgtk2.8-dev
+** libgl1-mesa-dev
+** libglu1-mesa-dev
+** libglut3-dev
+
+Maybe these are not all required. But after installing them I could ./configure with wx enabled.
+
+Oh, and also, it is a *very good idea to actually have a c++ compiler installed*. There is a package in ubuntu called c++ that fetches g++ 4.2 for you. There was actually no check for that dependency in the autoconf script, but it is documented as a requirement.
+
+After installing erlang in /opt/erlang-R13A there is an example wx gui in /opt/erlang-R13A/lib/erlang/lib/wx-0.98/examples/minimal called minimal.erl:
+
+{% highlight erlang %}
+%%%-------------------------------------------------------------------
+%%% File    : minimal.erl
+%%% Author  : Matthew Harrison <harryhuk at users.sourceforge.net>
+%%% Description : Minimal example of a wxerlang application
+%%%
+%%% Created :  18 Sep 2008 by  Matthew Harrison <harryhuk at users.sourceforge.net>
+%%%-------------------------------------------------------------------
+-module(minimal).
+
+-include_lib("wx/include/wx.hrl").
+
+-export([start/0]).
+-compile(export_all).
+
+start() ->
+    Wx = wx:new(),
+    Frame = wx:batch(fun() -> create_window(Wx) end),
+    wxWindow:show(Frame),
+    loop(Frame),
+    wx:destroy(),
+    ok.
+
+create_window(Wx) ->
+    Frame = wxFrame:new(Wx, -1, "Minimal wxErlang App", [{size, {600,400}}]),
+
+    Path = filename:dirname(code:which(?MODULE)),    
+    wxFrame:setIcon(Frame,  wxIcon:new(filename:join(Path,"sample.xpm"))),
+
+    wxFrame:createStatusBar(Frame,[]),
+    wxFrame:connect(Frame, close_window),
+
+    MenuBar  = wxMenuBar:new(),
+    FileM    = wxMenu:new([]),
+    HelpM    = wxMenu:new([]),
+
+    % unlike wxwidgets the stock menu items still need text to be given, 
+    % although help text does appear
+    _QuitMenuItem  = wxMenu:append(FileM, ?wxID_EXIT, "&Quit"),
+    % Note the keybord accelerator
+    _AboutMenuItem = wxMenu:append(HelpM, ?wxID_ABOUT, "&About...\tF1"),
+
+    wxMenu:appendSeparator(HelpM),    
+    ContentsMenuItem = wxMenu:append(HelpM, ?wxID_HELP_CONTENTS, "&Contents"),
+    wxMenuItem:enable(ContentsMenuItem, [{enable, false}]),
+
+    ok = wxFrame:connect(Frame, command_menu_selected), 
+
+    wxMenuBar:append(MenuBar, FileM, "&File"),
+    wxMenuBar:append(MenuBar, HelpM, "&Help"),
+    wxFrame:setMenuBar(Frame, MenuBar),
+
+    ok = wxFrame:setStatusText(Frame, "Welcome to wxErlang!",[]),
+    Frame.
+
+loop(Frame) ->
+    receive 
+        #wx{event=#wxClose{}} ->
+            io:format("~p Closing window ~n",[self()]),
+            wxFrame:destroy(Frame),
+            ok;
+        #wx{id=?wxID_EXIT, event=#wxCommand{type=command_menu_selected}} ->
+            wxWindow:destroy(Frame),
+            ok;
+        #wx{id=?wxID_ABOUT, event=#wxCommand{type=command_menu_selected}} ->
+            io:format("Got about ~n", []),
+            dialog(?wxID_ABOUT, Frame),
+            loop(Frame);
+        Msg ->
+            io:format("Got ~p ~n", [Msg]),
+            loop(Frame)
+    after 1000 ->
+        io:fwrite("."),
+        loop(Frame)
+    end.
+
+dialog(?wxID_ABOUT,  Frame) ->
+    Str = string:join(["Welcome to wxErlang.", 
+                       "This is the minimal wxErlang sample\n",
+                       "running under ",
+                       wx_misc:getOsDescription(),
+                       "."], 
+                      ""),
+    MD = wxMessageDialog:new(Frame,
+                             Str,
+                             [{style, ?wxOK bor ?wxICON_INFORMATION}, 
+                              {caption, "About wxErlang minimal sample"}]),
+
+    wxDialog:showModal(MD),
+    wxDialog:destroy(MD).
+
+{% endhighlight%}
+
+So "new()":http://erlang.org/doc/man/wx.html#new-0 gets a handle to wx that is used to construct the application. And *if you're not running the erlang vm with SMP enabled here is where it will crash* with this message:
+
+<pre>
+$ /opt/erlang-R13A/bin/erl -run minimal
+Erlang R13A (erts-5.7) [source] [rq:1] [async-threads:0] [hipe] [kernel-poll:false]
+
+{"init terminating in do_boot",{not_smp,[{wxe_server,start,0},{wx,new,0},{minimal,start,0},{init,start_it,1},{init,start_em,1}]}}
+init terminating in do_boot ()
+</pre>
+
+So run the example like this:
+
+<pre>
+/opt/erlang-R13A/lib/erlang/lib/wx-0.98/examples/minimal$ /opt/erlang-R13A/bin/erl -smp -run minimal -noshell -run erlang halt
+</pre>
+
+!/erlang/Screenshot-Minimal-wxErlang-App.png!
+
+
