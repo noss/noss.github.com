@@ -5,7 +5,9 @@ title: Erlang release R13A
 
 p(meta). 2009-03-17
 
-"Erlang R13A":http://www.erlang.org/download/otp_src_R13A.readme was just released a couple of hours ago. R13A is an alpha release of R13B. There are some very interesting things in this release.
+"Erlang R13A":http://www.erlang.org/download/otp_src_R13A.readme was just released a couple of hours ago. -R13A is an alpha release of R13B-. There are some very interesting things in this release.
+
+bq. *Correction*: R13A is a beta release of the next R13B major release.  We do not recommend it for use in live products. -- the R13A readme
 
 * The scheduler has finer lock-granularity. Several schedulers, one for each processor/core, better process affinity and cache usage. This will mean better scalability with increasing numbers of cores, proving that Erlang is to depend on when it comes to future multi-core systems.
 * A beta release of wxErlang, an erlang application for making desktop guis using "wxWidget":http://en.wikipedia.org/wiki/WxWidgets
