@@ -11,4 +11,9 @@ p(meta). 2009-03-17
 * A beta release of wxErlang, an erlang application for making desktop guis using "wxWidget":http://en.wikipedia.org/wiki/WxWidgets
 * A new module called unicode for converting unicode character encodings and latin character sets.
 
+PS.
 
+Download the "erlang torrent":http://erlang.org:6969/
+
+* "otp_src_R13A.tar.gz":http://erlang.org:6969/file?info_hash=%CBR%F9%158%DAo%FF%C4%14P%C5%9F%EC%90L%F8%5E%09%83
+* "otp_win32_R13A.exe":http://erlang.org:6969/file?info_hash=%21%1A%3By%AF%DF%E1/%17%C9%14%5C%BB%9B7%97%93%8B%11%F5
