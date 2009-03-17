@@ -1,0 +1,11 @@
+---
+layout: post
+title: Pi day!
+---
+
+p(meta). 2009-03-14
+
+Today is pi day! Because of 3.14 and today's date.
+
+Ok, this was silly. I'm actually just testing out multiple _posts directories for blogs, and this one is ending up in a different directory than my ordinary feed.
+
