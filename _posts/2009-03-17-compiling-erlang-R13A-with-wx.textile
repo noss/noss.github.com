@@ -131,4 +131,4 @@ So run the example like this:
 
 !/erlang/Screenshot-Minimal-wxErlang-App.png!
 
-
+*Update*: Just like Mats Cronqvist mentions, I too did "start over with a fresh untar":http://www.erlang.org/pipermail/erlang-questions/2009-March/042471.html after installing the dependencies needed for wx. 
