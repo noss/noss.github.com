@@ -1,0 +1,14 @@
+---
+layout: post
+title: Erlang list comprehension with no generator
+---
+
+p(meta). 2009-03-17
+
+The R13A release readme has this note:
+
+bq. OTP-7846  There will no longer be any warnings for list comprehensions without generators, as such list comprehension have turned out to be useful.
+
+I found it curious what kind of use or possible abuse one could have for this. So I set out for some googling and found this discussion on erlang-questions about "using list comprehensions without a generator":http://erlang.org/pipermail/erlang-questions/2007-April/025950.html.
+
+Thought I would share it with the blargosphere. 
