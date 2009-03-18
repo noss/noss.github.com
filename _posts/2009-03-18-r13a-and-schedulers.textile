@@ -1,0 +1,31 @@
+---
+layout: post
+title: R13A and Schedulers
+---
+
+p(meta). 2009-03-18
+
+So now is "the future of erlang":erlang.org/workshop/2008/Sess11.pdf. We have multiple schedulers. And with interesting release notes such as:
+
+bq.     OTP-7692  The Erlang process lock implementation has been improved by Mat Hostetter at Tilera Corporation.
+
+bq.    OTP-7852  Enhanced build environment for cross compilation to Tilera Tile architecture.  Support for native ethread atomics on Tilera Tile64/TilePro
+	      (Thanks to Tilera Corporation).
+
+... I can only assume that the "future multicore world is already here":http://en.wikipedia.org/wiki/Tilera.
+
+The @erlang:system_info(system_version)@ output changed in R13A. It looks something like 
+
+<pre>
+Erlang R13A (erts-5.7) [smp:2:2] [rq:2] [async-threads:0]
+</pre>
+
+Which not only fixes "this erlang version":http://erlang.org/pipermail/erlang-questions/2008-November/039520.html issue, but also conveys some new multiple-scheduler settings.
+
+bq. @+S Schedulers:SchedulerOnline@ \\
+    Sets the amount of scheduler threads to create and scheduler threads to set online when SMP support has been enabled. Valid range for both values are 1-1024. If the Erlang runtime system is able to determine the amount of logical processors configured and logical processors available, Schedulers will default to logical processors configured, and SchedulersOnline will default to logical processors available; otherwise, the default values will be 1. Schedulers may be omitted if :SchedulerOnline is not and vice versa. The amount of schedulers online can be changed at run time via "erlang:system_flag(schedulers_online, SchedulersOnline":http://www.erlang.org/doc/man/erlang.html#system_flag_schedulers_online). \\
+    This flag will be ignored if the emulator doesn't have SMP support enabled ("see the -smp flag":http://www.erlang.org/doc/man/erl.html#smp).
+
+This is what "ulf wiger have to say about the system_version":http://www.erlang.org/pipermail/erlang-questions/2009-March/042438.html and I suspect the thread will continue to clear up any remaining confusion.
+
+
