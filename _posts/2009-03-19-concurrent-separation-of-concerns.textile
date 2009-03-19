@@ -1,0 +1,30 @@
+---
+layout: post
+title: Concurrent separation of concerns
+---
+
+p(meta). 2009-03-19
+
+I spent much of this week debugging java, from post mortem dumps, to find a problem related to that all threads in a pool were trying to talk with a remote service that had crashed. Therefore nothing else in the java process was handled, making it appear dead. It is a typical stability anti pattern to not mark the service as broken and not attempting new connections for a while. This pattern is called "the circuit breaker":http://www.pragprog.com/titles/mnee/release-it in the book "Release It" from pragmatic programmers. (Very good book, if you're into long-running software you should read it!).
+
+But the circuit breaker is not what I want to get at with this post. A little trend on this blog is for me to reflect on java programming vs erlang programming.
+
+Joe Armstrong call Erlang's paradigm "concurrency oriented programming":http://www.sics.se/~joe/talks/ll2_2002.pdf to tell it apart from the object oriented programming that java is identified with.  Also, Steve Yegge points out a difference in thinking "primary about nous, or primary about verbs":http://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html in his blog post.
+
+If object oriented programming is about things that are, then concurrency oriented programming is about things that do. Nouns vs verbs.
+
+Now, in this blog I also have a tendency to write about testable code. And there are three rules to make your code more testable (which also happen to be three rules for good architecture overall, that writing unit tests will guide you into):
+
+* "Separation of Concerns":http://en.wikipedia.org/wiki/Separation_of_concerns
+* "The Law of Demeter":http://en.wikipedia.org/wiki/Principle_of_least_knowledge
+* "Dependency inversion principle":http://en.wikipedia.org/wiki/Dependency_inversion_principle
+
+Having spent time trying to debug the above java mentioned thread problem I see that in java, the programmers violates separation of concerns enormously when it comes to threads. A good rule of thumb is that if you describe somethings purpose, and use the word "and", then you should break it up into parts until you do not use "and" anymore. In Erlang you actually do this with processes. A gen_server process is there to fullfill a single purpose (if the design is good). All the calls and casts are there to archive this one purpose. Short lived processes are spawned to do one thing and get back with the result when done.
+
+In java, it is absolutely not so. I would not be exaggering if I said that most threads' purpose description will use the word "and" at least 5 times. It is the thread that accepts the socket and and executes its handler and queries the database and fetches from memcache and writes to the log and talks to the credit card processor and renders the result page and sends it back.
+
+I would not be surprised if this is just a side-effect of java programming being the kingdom of the nouns, and erlang being the kingdom of the verbs. 
+
+*PS*
+I am well aware that one can use a more message passing approach in Java using java.util.concurrent blocking queues and copy on write arrays and hashmaps. I'm merely pointing out the "cultural" difference resulting from the programming language concepts. A point that I will try to use for future Java programming.
+
