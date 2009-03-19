@@ -129,6 +129,6 @@ So run the example like this:
 /opt/erlang-R13A/lib/erlang/lib/wx-0.98/examples/minimal$ /opt/erlang-R13A/bin/erl -smp -run minimal -noshell -run erlang halt
 </pre>
 
-!/erlang/Screenshot-Minimal-wxErlang-App.png!
+!/erlang/Screenshot-Minimal-wxErlang-App.png(A screenshot of wx)!
 
 *Update*: Just like Mats Cronqvist mentions, I too did "start over with a fresh untar":http://www.erlang.org/pipermail/erlang-questions/2009-March/042471.html after installing the dependencies needed for wx. 
