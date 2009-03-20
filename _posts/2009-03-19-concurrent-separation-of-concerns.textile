@@ -23,7 +23,7 @@ Having spent time trying to debug the above java mentioned thread problem I see 
 
 In java, it is absolutely not so. I would not be exaggering if I said that most threads' purpose description will use the word "and" at least 5 times. It is the thread that accepts the socket and and executes its handler and queries the database and fetches from memcache and writes to the log and talks to the credit card processor and renders the result page and sends it back.
 
-I would not be surprised if this is just a side-effect of java programming being the kingdom of the nouns, and erlang being the kingdom of the verbs. 
+Maybe it is just a side-effect of java programming being the kingdom of the nouns, and erlang being the kingdom of the verbs. 
 
 *PS*
 I am well aware that one can use a more message passing approach in Java using java.util.concurrent blocking queues and copy on write arrays and hashmaps. I'm merely pointing out the "cultural" difference resulting from the programming language concepts. A point that I will try to use for future Java programming.
