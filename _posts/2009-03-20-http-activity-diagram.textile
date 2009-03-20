@@ -1,0 +1,19 @@
+---
+layout: post
+title: HTTP activity diagram
+---
+
+p(meta). 2009-03-20
+
+This is more of a reminder to myself for something I should use for future work in iserve. The "Alan Dean HTTP Header Status":http://thoughtpad.net/alan-dean/http-headers-status.html diagram. That's some beautiful work.
+
+If there is something else to say in this post it is a complaint with myself that I am not better with tools to create such diagrams, or generally, I am not good at visualizing situations using diagrams.
+
+Programming is so very much about communicating your interpretation of requirements and your intentions in how to solve them, and diagrams can say so much more than an A4 page full of text.
+
+One particular school for modelling is the "fundamental modeling concepts":http://www.fmc-modeling.org/quick-intro described as:
+
+bq. FMC is the acronym for "Fundamental Modeling Concepts", primarily a consistent and coherent way to think and talk about dynamic systems. It enables people to communicate the concepts and structures of complex informational systems in an efficient way among the different types of stakeholders. A universal notation originating from existing standards, easy to learn and to apply, is defined to visualize the structures and to communicate in a coherent way. In contrast to most of the visualization and modeling standards of today it focuses on human comprehension of complex systems on all levels of abstraction by clearly separating conceptual structures from implementation structures.
+
+It is a very beautiful visual language that Erlang programmers should find useful. Another thing I like with FMC(Fundamental Modeling Concepts) is that it focuses on using the visual model for human comprehension and not for that FAIL-IDEA that is UML based code stub generation. I much rather generate visual presentation of written code than generate code from visual presentations.
+
