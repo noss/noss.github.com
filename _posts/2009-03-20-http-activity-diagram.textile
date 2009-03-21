@@ -5,7 +5,7 @@ title: HTTP activity diagram
 
 p(meta). 2009-03-20
 
-This is more of a reminder to myself for something I should use for future work in iserve. The "Alan Dean HTTP Header Status":http://thoughtpad.net/alan-dean/http-headers-status.html diagram. That's some beautiful work.
+This is more of a reminder to myself for something I should use for future work in "iserve":http://frihjul.net/iserve. The "Alan Dean HTTP Header Status":http://thoughtpad.net/alan-dean/http-headers-status.html diagram. That's some beautiful work.
 
 If there is something else to say in this post it is a complaint with myself that I am not better with tools to create such diagrams, or generally, I am not good at visualizing situations using diagrams.
 
