@@ -22,7 +22,7 @@ h3. Dysfunctional programming?
 First of, the word *functional* in FP does not relate to functional/dysfunctional.  It is a made up word using latin suffix "-al" which means something relating to, as in (**giggle**) anus/anal or vagina/vaginal. Basically, FP is programming related to functions.  But very important: functions as they are known in math. Stone-cold side-effect free ones that map from one set of values to another set of values.  I used to think it was just a bunch of mathematicians that wanted a programming paradigm name to flaunt.  
 
 
-To actually get unit tests written I can't say it better myself: ??there are no tricks to writing tests, there are only tricks to writing testable code??:http://googletesting.blogspot.com/2008/08/by-miko-hevery-so-you-decided-to.html.  A common pitfall is that your codebase is too monolithic.  Everything seems to depend on each other so you can't write a single automated test without having to rig a real SQL database and make real HTTP requests, or anything else external.  This is an effect of having hard-coded dependencies that should have been parametric to the code using them.
+To actually get unit tests written I can't say it better myself: "there are no tricks to writing tests, there are only tricks to writing testable code":http://googletesting.blogspot.com/2008/08/by-miko-hevery-so-you-decided-to.html.  A common pitfall is that your codebase is too monolithic.  Everything seems to depend on each other so you can't write a single automated test without having to rig a real SQL database and make real HTTP requests, or anything else external.  This is an effect of having hard-coded dependencies that should have been parametric to the code using them.
 
 
 h3. Yay, independence day
