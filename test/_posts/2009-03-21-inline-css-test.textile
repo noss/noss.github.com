@@ -1,0 +1,26 @@
+---
+layout: post
+title: Inline CSS test 
+---
+
+p(meta). 2009-03-21
+
+Some experiments with inline style, and how feed readers filter out style-attributes or values inside style-attributes:
+
+p{color:blue}. This should be blue.
+
+Text here.
+
+p{padding: 20px 0}. This paragraph has 20 pixel of vertical padding.
+
+Text here.
+
+p{padding: 0 20px }. This paragraph has 20 pixel of horizontal padding.
+
+Text here.
+
+p{font-size: x-large}. This paragraph is in x-large font-size.
+
+Test end.
+
+

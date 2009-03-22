@@ -1,0 +1,33 @@
+---
+layout: post
+title: Google Feedfetcher, meet HTTP status 410 Gone
+---
+
+p(meta). 2009-03-21
+
+I used to host an RSS feed on a domain I own. Someone added it to google reader or igoogle, so google feedfetcher will fetch it. But the feed was very short lived, and removed so feedfetcher got a 404 reply. 
+
+About two years later, google feedfetcher is still trying to fetch that feed, and it attempts so 8 (!) times every day. 
+
+Expecting much from google, I find the FAQ entry "How do I request that Google not retrieve some or all of my site's feeds?":http://www.google.com/feedfetcher.html#robotsinfo in their feedfetcher help. No wait... dead links to the removals page. Well, it was not really what I wanted. I want to tell it that the feed is no more so there is not sensible to fetch it anylonger.
+
+The FAQ indicates that google feedfetcher is too good to abide by robots.txt rules to target the feedfetcher spider. You see Google is fetching it for a user, and users are more important than publishers. A publisher that ask google to stop fetching a dead feed seems to be a preposterous request.
+
+Really google? Is this the best you can do?
+
+Okay. Maybe it is my fault. Maybe you keep trying to download the page because 404 is so often just an indication of a temporarily broken web server. After all that is the default response for an url that doesnt exist for most of the web servers out there. You are just missing a counter to how many times or how long time you have been getting the 404. I get it. I should respond something more sensible for you to de-subscribe all users that try to get at this feed. I could have made such a mistake as well if I had implemented feedfetcher.
+
+So looking through RFC 2616 for HTTP/1.1 I find the "410 Gone":http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11 status code:
+
+<blockquote cite="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">
+The requested resource is no longer available at the server and no forwarding address is known. This condition is expected to be considered permanent. Clients with link editing capabilities SHOULD delete references to the Request-URI after user approval. If the server does not know, or has no facility to determine, whether or not the condition is permanent, the status code 404 (Not Found) SHOULD be used instead. This response is cacheable unless indicated otherwise.
+
+The 410 response is primarily intended to assist the task of web maintenance by notifying the recipient that the resource is intentionally unavailable and that the server owners desire that remote links to that resource be removed. Such an event is common for limited-time, promotional services and for resources belonging to individuals no longer working at the server's site. It is not necessary to mark all permanently unavailable resources as "gone" or to keep the mark for any length of time -- that is left to the discretion of the server owner. 
+</blockquote>
+
+Ah! Of course! Someone at google must have thought about this concept to let publishers kill feeds! 
+
+There is just one problem, I changed my dead rss feed to serve 410 back in october 2008, and feedfetcher is still hitting me 8 times a day...
+
+p>. EPIC FAIL
+
