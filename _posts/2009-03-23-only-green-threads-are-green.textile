@@ -1,0 +1,23 @@
+---
+layout: post
+title: Only green threads are green
+---
+
+p(meta). 2009-03-23
+
+I often see userspace threads being called "Green Threads":http://en.wikipedia.org/wiki/Green_threads. It was a name that I had never heard before Java was released. Everyone uses it as an established name for the userspace threading concept as if it has been established for many decades. At the time of writing even Wikipedia makes it appear as if the name existed before the point Java was implemented.
+
+Some googling and I found evidence of my suspishion. Green threads is a name FROM the Java project.
+
+<blockquote cite="http://www.cincomsmalltalk.com/blog/blogView?showComments=true&entry=3303013147">
+When Java 1.0 first came out on Solaris, it did not use the native Solaris library libthread.so to support threads. Instead it used runtime thread support that had been written in Java for an earlier project code-named "Green." That thread library came to be known as "green threads."
+</blockquote>
+
+If anything I think the name for what Erlang has should be "Williams Processes" by what was said in this "talk with Joe Armstrong":http://www.se-radio.net/transcript-89-joe-armstrong-erlang
+
+<blockquote cite="http://www.se-radio.net/transcript-89-joe-armstrong-erlang">
+Yeah, and so Mike came along and he wrote an emulator C. Mike is pretty good in C. So, he really, I think he and I sort of, he told me quite a lot about C and Mike had a lot of experience with concurrent languages. And so he said well, the performance of a concurrent language is predicated by three things, it is the context-switching time, it is message-passing time and it is the time to create a process. So, these are fundamental. You know, in any programming mode you start with something fundamental. And you implement that very very very very well. Then you build your tower on top of it. And so, what Mike did in the emulator there was, he broke the C and then he turned on the optimiser and he printed a heavy assembly and stated it many times and did it again and again and again.
+</blockquote>
+
+He had insight in what was needed, started the research, and did the hard work to get there. Java can have their Green threads. Green is the color I associate with people that feel sick to their stomach. Suits fine.
+
