@@ -31,6 +31,7 @@ span.date {
   color: gray;
   background-color: white;
   font-weight: bold;
+  margin: 2em 0;
 }
 #nav ul,
 #nav ul li {
