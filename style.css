@@ -25,6 +25,11 @@ span.date {
   color: black;
   padding: 1ex 0;
 }
+#post blockquote {
+  border-left: 1ex solid Gray;
+  margin: 0 0 0 1ex;
+  padding: 0 0 0 1ex;
+}
 
 
 #nav {
