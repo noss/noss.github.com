@@ -1,0 +1,14 @@
+---
+layout: post
+title: Software engineering mud
+category: se
+---
+
+p(meta). 2009-03-28
+
+I found and read "Big ball of mud":http://www.laputan.org/pub/foote/mud.pdf (pdf, 41 pages) today. It is a paper on software architecture in the "real world".
+
+It has many good reflections, and remarks such as that hard-to-understand code is more evolutionary fit because it is less likely to be comprehended and changed, that is both funny and cynical at the same time.
+
+I recommend the read.
+
