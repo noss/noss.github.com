@@ -1,0 +1,17 @@
+---
+layout: post
+title: Erlang XML soon faster
+---
+
+p(meta). 2009-04-02
+
+Fresh rumour from erlang-questions "OTP is working on xmlerl improvements":http://www.erlang.org/pipermail/erlang-questions/2009-April/042870.html, leaked by Kenneth Lundin at OTP himself:
+
+<blockquote cite="http://www.erlang.org/pipermail/erlang-questions/2009-April/042870.html">
+We are working on significant performance improvements and new API's for XMERL.
+
+The new XMERL will be at least 4 times faster than the current version. The base for this is a completely new SAX parser that you also can use directly with new API's.
+
+The memory consumption will also be significantly reduced.
+</blockquote>
+
