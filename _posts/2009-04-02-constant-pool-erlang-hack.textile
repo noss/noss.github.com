@@ -5,7 +5,7 @@ title: Constant-pool erlang hack
 
 p(meta). 2009-04-02
 
-In "Erlang R12B-0 added a per-module memory area for constants":http://erlang.org/download/otp_src_R12B-0.readme, literal values in a module are stored there. Before, they were allocated on the heap every time they were referenced. This meant that some kinds of optimization that avoided literal lookup-tables became irrelevant in one go. A great example of the kind of improvements that OTP focus on, removing speed-bumps to having beautiful code. 
+Erlang R12B-0 added "a per-module memory area for constants":http://erlang.org/download/otp_src_R12B-0.readme, the literal values in a module are stored there. Before, they were allocated on the heap every time they were referenced. This meant that some kinds of optimization that avoided literal lookup-tables became irrelevant in one go (without even recompiling the source). A great example of the kind of improvements that OTP focus on: removing speed-bumps to having beautiful code. 
 
 h2. From the release notes of R12B-0
 
@@ -21,7 +21,7 @@ h2. The hack
 
 If one has very assymetric access patterns to some value, Maybe millions of times more reads than updates, and this is a measured problem, one can reach for hacks such as "generating a module containing the values as literals":http://www.erlang.org/pipermail/erlang-questions/2009-March/042778.html and thus have a global configuration value that will not grow your heap unecessary.
 
-h2. PS
+h2. But...
 
-But as always, remember "when to optimize":http://www.erlang.org/doc/efficiency_guide/introduction.html#1.1.
+As always, remember "when to optimize":http://www.erlang.org/doc/efficiency_guide/introduction.html#1.1.
 
