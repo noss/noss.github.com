@@ -1,0 +1,16 @@
+---
+layout: post
+title: Self-referencing anonymous functions in Erlang
+---
+
+A somewhat frequent question on "erlang-questions":http://www.erlang.org/pipermail/erlang-questions/2009-April/042907.html :
+
+bq. Would it be a bad idea to introduce a keyword for self referencing anonymous functions?
+
+That discussion has been had several times on this list. I think nothing is done because those that are capable of doing it don't feel that it is important. The shell is just used for basic inspection and evaluation, not for building systems. Get distel to compile into real modules if you want more interactive development. If you want recusion in real modules you can define a named function. Giving non-trivial things a name is generally a good thing. It makes it much easier to talk about.
+
+Anyway.
+
+Introducing a magical keyword that refers to the surrounding closure would be a bad thing anyway. First for introducing yet another keyword. Secondly because it is only referring to one surrounding fun when erlang allow funs to return funs that return funs, and so on.  
+
+The better approach would be to add an optional name that is scoped to the fun-body. This way you can have multiple nested funs and they can refer to the outer funs or itself, and the programmer can give them meaningful names.
