@@ -18,7 +18,7 @@ In telecommunications applications there are needs different from the features p
 # Complicated non realtime queries mainly for operation and maintenance.
 # Distributed data due to distributed applications.
 # High fault tolerance.
-# Dynamic re con guration.
+# Dynamic re-configuration.
 # Complex objects.
 
 What sets Mnesia apart from most other DBMSs is that it is designed with the typical data management problems of telecommunications applications in mind. Hence Mnesia combines many concepts found in traditional databases such as transactions and queries with concepts found in data management systems for telecommunications applications such as very fast realtime operations, configurable degree of fault tolerance (by means of replication) and the ability to reconfigure the system without stopping or suspending it. Mnesia is also interesting due to its tight coupling to the programming language Erlang, thus almost turning Erlang into a database programming language. This has many benefits, the foremost being that the impedance mismatch between data format used by the DBMS and data format used by the programming language which is being used to manipulate the data, completely disappears.
