@@ -1,0 +1,46 @@
+---
+layout: post
+title: Mnesia sucks ... not
+---
+
+p(meta). 2009-04-04
+
+... well no it doesn't suck. But titles like that are good for attention. :-/
+
+Mnesia is one of the killer applications in Erlang. A killer application that get people to take a deeper look at Erlang. Some come with the expectation that it will be a silver bullet solution to all their scalability and performance problems, or that it will be easy to move over to from their current database. When Mnesia fails to be what they thought it would be, we all get to read about how mnesia sucks.
+
+So if you're getting into Mnesia, my first recommendation is this "mnesia overview":http://www.erlang.se/publications/mnesia_overview.pdf. It is just 15 pages (pdf) and contains the rationale and a basic feature overview.
+
+<blockquote cite="http://www.erlang.se/publications/mnesia_overview.pdf">
+In telecommunications applications there are needs different from the features provided by traditional DBMSs. The applications we now see implemented in the Erlang language need a mixture of a broad range of features which generally are not satisfied by traditional DBMSs. Mnesia is designed with requirements like the following in mind:
+
+# Fast realtime key value lookup.
+# Complicated non realtime queries mainly for operation and maintenance.
+# Distributed data due to distributed applications.
+# High fault tolerance.
+# Dynamic re con guration.
+# Complex objects.
+
+What sets Mnesia apart from most other DBMSs is that it is designed with the typical data management problems of telecommunications applications in mind. Hence Mnesia combines many concepts found in traditional databases such as transactions and queries with concepts found in data management systems for telecommunications applications such as very fast realtime operations, configurable degree of fault tolerance (by means of replication) and the ability to reconfigure the system without stopping or suspending it. Mnesia is also interesting due to its tight coupling to the programming language Erlang, thus almost turning Erlang into a database programming language. This has many benefits, the foremost being that the impedance mismatch between data format used by the DBMS and data format used by the programming language which is being used to manipulate the data, completely disappears.
+</blockquote>
+
+h2. Usage scenario 
+
+For example, with pre-paid cards for mobile phones, calls progress by reserving money for the next few seconds. If there is a reserve failure, the call will be cancelled, else the seconds will pass and the reserved amount will be debited. With millions of subscribers you can easily have a hundred thousand concurrent sessions. Each session will want to reserve and debit every few second.
+
+This problem has a real-time requirement, you cant start to lag with processing reservation requests above those few seconds, because then people will have their phone-calls dropped, and they will not be happy customers. Instead they will get another operator. And you dont want to solve your performance problems by losing customers.
+
+Typically, when systems like these fail, you allow users to call for free rather than cancelling all calls in progress and disallowing further calls (for happy-customer reasons again). This means that downtime is quite easy to measure in amount of money lost. You just extrapolate from average traffic from the same time this day earlier weeks. Assuming calls reserve money every 10 seconds, there is 100 000 concurrent sessions and the cost per-minute is 0.69 swedish krona, "this calculation":http://www.google.com/search?q=100000*0.69+SEK+in+EUR tells us a minute of undebited calls is 6 430.24542 Euros (SEK:EUR exchange rate at the time this is written). 
+
+So you could buy a beefy server for each minute you're not debiting customers. It is no longer excusable to have downtime because a comparably cheap hard drive failed, or psu burned, or computer-hall electricity surged, instead it is very excusable to have a hot standby server that can take over within a second. Relative response time to get someone to the server and fix hardware problems can easily reach an hour. Humans are slow.
+
+This is what mnesia is built for. Not for distributed storage and querying your copy of wikipedia, or other archival purposes. Just plain online and transient data for soft realtime access. The storage limit of dets-backed tables that is at 2 (or 4?) Gb, means that 100000 users can have 20 (or 40) kilobyte data about them. But you dont want to keep that on disk, you keep it as a ram_table so you can handle the high transactions-per-second. And ets-backed ram_tables do not have any limit other than available-memory in your machine.
+
+h2. Further reading
+
+* The "Mnesia User Guide":erlang.org/doc/pdf/mnesia.pdf is 134 pages (pdf) of useful details. The intended user is a developer.
+* Function reference for the "mnesia module":http://www.erlang.org/doc/man/mnesia.html
+* The "Mnesia FAQ":http://erlang.org/faq/mnesia.html#11
+* A complement to Mnesia's shortcommings "CouchDB":http://couchdb.apache.org/ (okay, you probably already heard about that one).
+* Kai, scalaris, ringo, dynomite, disco... these are all erlang project names related to distributing and querying data.
+

@@ -1,0 +1,14 @@
+---
+layout: post
+title: Google feedfetcher feed-id
+---
+
+p(meta). 2009-03-29
+
+Since 2009-03-23 the user-agent header in feedfetcher requests include a @feed-id@ part with a longer number. What is this? Can I use it to go and kill further requests against that feed?
+
+A mystery.
+
+The only change since the last post about "google feedfetcher doesnt understand 410 gone":/2009/03/21/google-feedfetcher-meet-http-status-410-gone.html is that now feedfetcher hits up to 12 times a day for missing feeds. :/
+
+

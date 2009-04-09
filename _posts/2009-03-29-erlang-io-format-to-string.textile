@@ -1,0 +1,33 @@
+---
+layout: post
+title: Erlang io:format to string
+---
+
+p(meta). 2009-03-29
+
+This is quite a "FAQ":http://erlang.org/faq/faq.html 
+
+bq. How do you get the result from "io:format":http://www.erlang.org/doc/man/io.html#format-3 into a string. 
+
+So here goes.
+
+There is an "io_lib:format":http://www.erlang.org/doc/man/io_lib.html#format-2 which returns the formatted result instead of printing it. Notice io_lib as module name instead of io. The result is not necessarily a flat list. No. The result might look like the following.
+
+<pre>
+1> io_lib:format("foo ~p bar~n", [42]).
+[102,111,111,32,"42",32,98,97,114,"\n"]
+2> erlang:iolist_to_binary(v(1)).
+<<"foo 42 bar\n">>
+3> lists:flatten(v(1)).
+"foo 42 bar\n"
+</pre>
+
+But as you see, there are ways to flatten the result. It is not done per automation since all data sent to ports are flattened there anyway. Ports include files, other processes, sockets, etc. The concept is called "iolist". If you want the byte-count of an iolist, then use "erlang:iolist_size":http://www.erlang.org/doc/man/erlang.html#iolist_size-1.
+
+Finally I would like to point out a little useful function called "lists:concat":http://www.erlang.org/doc/man/lists.html#concat-1 (which is nothing like "lists:append":http://www.erlang.org/doc/man/lists.html#append-1).
+
+<pre>
+4> lists:concat([foo," ", 42, " ", bar, "\n"]).
+"foo 42 bar\n"
+</pre>
+
