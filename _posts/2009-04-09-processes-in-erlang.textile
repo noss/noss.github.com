@@ -1,0 +1,23 @@
+---
+layout: post
+title: Processes in Erlang
+---
+
+p(meta). 2009-04-09
+
+Found "Processes in Erlang":http://www.sheysrebellion.net/blog/2009/04/09/processes-in-erlang/ today. Inspired me to a comment:
+
+CO(concurrency oriented) programming differs from OO(object oriented) programming in an important way.
+
+A process represents something happening. If you have a process that represent a passive object, it is OO programming. In CO you use values to represent passive things. (The process identifier tends to not be a good value, since it has a beginning and end, is connected to the node that created it, wont survive node restarts, it is only good if the value represented also is short-lived.)
+
+The process has a mission, it is doing things to reach a result. Think of the meaning of "process" outside of programming (how laws are passed in parliamentarism, how a customer support issue is handled at your company, and so on). That is what CO processes are about. Compare it to the typical OO example: A Shape superclass with Sphere, Rectangle, and Polygon (etc...) subclasses. Those classes of objects have no goal. They just exist to be used.
+
+In many situations the difference in actual code will be quite small. There will often be one process coordinating tasks for one passive object. The difference will be in your head, in how you name things, and thus how you relate to them.
+
+In the example of the article linked to, stocks and money changing owners, the active task is the transaction. It is a process that knows the amount of stock, the amount of money, the stock owner registry, the buyer and seller (actually, bank accounts of theirs). It has a goal to perform the transaction so that no party loses property or money, or give up.
+
+The transaction will have to use a protocol involving the processes providing services for the passive things, a stock ownership registry and two bank accounts, to complete an atomic transaction. Using a two-phase commit, for example. The processes that provide service will likely be looked up using the values representing them. A bank might not have a process for each account all the time, but create them on demand, limiting it to only one process to exist at any time. 
+
+Of course, the pattern of performing an atomic transaction involving changes to multiple entities looked up by representing value is so common that it already exists. Mnesia.
+
