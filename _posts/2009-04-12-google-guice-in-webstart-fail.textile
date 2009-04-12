@@ -1,0 +1,15 @@
+---
+layout: post
+title: Using google guice in webstart
+---
+
+p(meta). 2009-04-12
+
+I spent all night trying to get google guice working inside a java webstart sandbox. The results of the all-nigher to "get guice working in java webstart":http://groups.google.com/group/google-guice-dev/browse_thread/thread/42399276af2f1fec can be read there.
+
+In short:
+
+FAIL
+
+Ehh.
+
