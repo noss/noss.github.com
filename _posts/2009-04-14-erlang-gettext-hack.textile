@@ -12,9 +12,9 @@ My result so far is just a proof of concept, too early to be released really. I 
 # Parse gettext ".po" file
 # Generate erlang module that exports Mod:gettext/1, taking an atom, returning a string.
 # Compile said module
-# Use I18N:gettext('Hello World') in source, but probably as ?_('Hello World') or ?__(I18N, 'Hello World'). The existing code uses the process dictionary to store the I18N table to use, and so can I.
+# Use @I18N:gettext('Hello World')@ in source, but probably as @?_('Hello World')@ or @?__(I18N, 'Hello World')@. The existing code uses the process dictionary to store the I18N table to use, and so can I.
 
 I'll get back when I have better code generation. Perhaps generating AST and compiling down to a .beam directly. Right now it generates source text and doesnt even escape strings.
 
-Oh yeah, and a link: http://github.com/noss/erlang-gettext
+Oh yeah, and a link: "noss/erlang-gettext @ github":http://github.com/noss/erlang-gettext
 
