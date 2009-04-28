@@ -1,0 +1,20 @@
+---
+layout: post
+title: Reverse engineering oracle protocol
+---
+
+p(meta). 2009-04-28
+
+This is one of those "so clever it is dumb" things. Sitting with wireshark to verify system behaviour in connecting to oracle i happen to see some exchange in the protocol.
+
+<blockquote>
+Everybody follows
+Speedy bits exchange
+Stars await to gl@ow"
+The preceding key is copyrighted by Oracle Corporation.
+</blockquote>
+
+The idea is likely that by having this copyrighted poem required in the protocol, no body but oracle can implement the protocol without breaching their copyright to the poem. ("Not only my guess":http://dacut.blogspot.com/2008/03/oracle-poetry.html)
+
+And those guys just bought JAVA. Yay.
+
