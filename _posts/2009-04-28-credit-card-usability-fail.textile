@@ -1,0 +1,17 @@
+---
+layout: post
+title: Credit card usability fail
+---
+
+p(meta). 2009-04-28
+
+Today it happened again at the store. The guy in front of me in line forgot his credit card in the card reader, but I noticed half a minute after he had walked away into the masses. The cashier handled it and in our spontaneous discussion about it she pointed out that she gets plenty of them now when the old magnet-strips are being phased out with a chip.
+
+Magnetic strips are slid through the reader and you stand there with your card in your hand. With chips, you insert the card, type in your code and agree with the sum to pay, then you stand there without the card in your hand. Then comes the final important step that is essential but tiny enough to forget. Take the card back.
+
+I dont understand why they dont go the route of car seat-belts, beep, and that until you take the card out. Or flash, if the noise would be an issue.
+
+h3. PS
+
+Like this idea, Banks? I would gladly accept a small symbolic fee of 0.1 cent per cc transaction. A simple token of your appreciation. Mmmkay?
+
