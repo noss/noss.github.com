@@ -1,0 +1,29 @@
+---
+layout: post
+title: Swedish tax
+---
+
+p(meta). 2009-04-19
+
+People "from the internet" that find out I'm Swedish are often curious about taxes in Sweden. The questions are often colored by a certain ignorance of how life is in Sweden, either from assuming Sweden is a "real" Monarchy (in the sence that the king has power), or assuming that the size of the Social democratic party makes sweden a mostly communist state (by the Karl Marx definition of socialism).
+
+Swedes in general feel that taxes have worked out well (semitruth: that is why they're put up with). For my own part I have enjoyed completely free healthcare until I turned adult (at 18 yo) (after that it is heavily subsidiced, but there are small symbolic costs per visit). Nine years (plus three more of high school equivalent) of free public schools that serve free lunch, then tuition-free university education (but you need student loans to pay for books, housing, food (or you find a side-job)). For popular university educations you get in on grades and SAT-scores. Government social programs have probably kept the suburb I grew up in a nicer place than it would otherwise be.
+
+Swedes trust their government. It has much to do with "low corruption":http://www.transparency.org/policy_research/surveys_indices/cpi/2008 because of high government transparency. This is protected by "offentlighetsprincipen":http://sv.wikipedia.org/wiki/Offentlighetsprincipen (or, see "a summary in english of the principle of public access":http://en.wikipedia.org/wiki/Freedom_of_information_legislation#Sweden). All the scandinavian countries have something similar, and they all also have high taxes. Coincidence?
+
+So, what does all this cost? I was planning to make some graphs of my own, but then I found "www.ekonomifakta.se":http://www.ekonomifakta.se/, in Swedish, but you will understand the graphs: 
+
+* Sweden has progressive income "tax brackets":http://www.ekonomifakta.se/sv/Fakta/Skatter/Skatterna_forklaras/Marginalskatt/, compare this to "progressive income tax brackets in USA":http://en.wikipedia.org/wiki/Rate_schedule_%28federal_income_tax%29.  Basically there is a huge step up at "380200 SEK":http://www.google.com/search?q=380200+SEK+in+USD (about $45k when written).  
+* There is a hidden tax called "arbetsgivaravgift" (roughly "employer fee"), which is proportional to the employee's salary. It is currently at 31.42%. See "a graph of how the employer fee changed over time":http://www.ekonomifakta.se/sv/Fakta/Skatter/Skatterna_forklaras/Arbetsgivaravgift/ since it was introduced. It would be more honest if this money was paid out to and paid by the employee. Apparently, this corresponds to "Payroll tax":http://en.wikipedia.org/wiki/Payroll_tax.
+* Sweden also has high Value Added Tax ("moms" in swedish), as with the payroll tax the "Swedish VAT started out low and kept increasing":http://www.ekonomifakta.se/sv/Fakta/Skatter/Skatterna_forklaras/Moms/. The page states that VAT is the second largest tax for the government, 19% of taxes. Food is taxed at 12%, everything else at 25%, except newspapers and books that is at 6%.
+* Interest, funds, and stock income are taxed with 30%. But you can deduct debt interest, fund and stock loss with 30% as well.
+* Company income is taxed at 28%, but as I am not self-employed or owning a company it doesnt immediately affect me. (Sweden has free enterprising though, so I can start a company if I want to. And I do. Just wait.)
+
+So when people ask me how much I pay in taxes my answer is that I dont know. They want a short answer such as "60 percent" so they can go "woha! sucks to be you!". Given that I just researched all of the above I do feel a bit bum-fucked.
+
+Now, given that it is the time of year when you hand in your taxes, I know that during 2008 I had to pay just below 28% in income taxes (I make around $50k a year, so government took about $15k), not including VAT on stuff I bought during the year. But that number will vary each year since it includes deductions on variable interest for a rather large loan for my apartment. Also tax law tend to change quite a lot in Sweden, compared to the rest of the democratic world.
+
+At 28% I feel significantly less bum-fucked than I thought I was. Other countries with much lower taxes do not impress me much at all. It's like chosing between having a job you love, or working with something you hate but being paid better.
+
+And besides, we have free education, so I can get a master's degree and any country in the world is open for my immigration.
+

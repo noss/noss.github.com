@@ -1,0 +1,26 @@
+---
+layout: post
+title: What everybody already know about Erlang
+---
+
+p(meta). 2009-04-07
+
+What is <a href="http://james-iry.blogspot.com/2009/04/erlang-style-actors-are-all-about.html" rel="nofollow">this guy</a> talking about? Lots of words with a very vague red thread, and in the end:
+
+bq. It has been suggested in the comments that when people say that Erlang style actors don't share state they mean it doesn't share memory. First, I clearly defined state in the previous article as being different from its representation. But, just as importantly, I think that saying "we don't share memory" is a distinction without distinction. It's an implementor's point of view that doesn't reflect how a user must think about actors.  
+
+Having been on the internets before, I know that when people begin to clear up (adjust?) definitions, you know something fishy is going on. I mean, shaking the definitions have been used before ("what is the definition of 'is'":http://en.wikipedia.org/wiki/List_of_U.S._presidential_faux-pas,_gaffes,_and_unfortunate_incidents#Bill_Clinton, anyway?). Of course, it is an argument tactics that has many success stories (prisoner of war/illegal combatant, torture/interview, theft/performance bonus, christianity/intelligent design, etc.)
+
+The particular post above smells more like a desire to bash Erlang as it is new and different, clashing with the programmer community the author identifies with and has his experience with. Not at all for pointing out something yet unknown and/or really bad about Erlang or the actor model itself. I could be wrong. I'm waiting for the movie based on the post. He is definitely not asking for clarification on something he doesnt understand though.
+
+For future reference, here is what everyone already know about erlang (not exhaustive, not all related to the above article):
+
+* It is possible to share state in erlang. Just create a public ets table or open a file and read/write from multiple processes. Evil shared state at work!
+* It is possible to have as-good-as mutable-variables in Erlang, use the process dictionary. Actually, you can even read the process dictionary of another process without it knowing. Yay for race-conditions if abused.
+* Yeah, mnesia. Mutable table rows. We know that too. Dirty transactions for fun and profit!
+* At any one moment, a running Erlang program has lots of internal state that together form the current state that will shape how the system progress from there on, and that progress will likely change lots of state isolated in processes and in the mutable storages just mentioned. 
+* One can implement asynchronous message-passing style in your favourite language too. That is not news to us. We dont get angry if you do. We encourage you to do it. We like the programming paradigm.
+* Erlang distinguishes itself from other languages' syntax. It is kind of the point.
+* Scalability does not come by itself from using Erlang. Software still has to be designed with it in mind.
+* Erlang has all-or-nothing security. And the nothing-kind is itself kind of unsecure since node-communication is not encrypted out-of-the-box. 
+

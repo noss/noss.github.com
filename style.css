@@ -51,6 +51,11 @@ span.date {
   padding: 5px;
 }
 
+#related {
+  border-top: 1em solid #ccc;
+  font-size: small;
+}
+
 .highlight .k {
   color: blue;
 }

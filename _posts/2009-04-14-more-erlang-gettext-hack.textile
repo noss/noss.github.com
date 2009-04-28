@@ -1,0 +1,18 @@
+---
+layout: post
+title: More erlang-gettext hack
+---
+
+p(meta). 2009-04-14
+
+Implemented this interface:
+<pre>
+1> gettext_generate:compile(se, "swedish.po").
+{module,se}
+2> gettext_generate:compile(es, "spanish.po").
+{module,es}
+</pre>
+
+But read "erlang-gettext README-generated.textile":http://github.com/noss/erlang-gettext/tree/master at github instead.
+
+

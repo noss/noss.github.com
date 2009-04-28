@@ -1,0 +1,13 @@
+---
+layout: post
+title: Wake up again
+---
+
+p(meta). 2009-04-24
+
+Put on your reflective sun-glassess and get into "multi-core programming in C++":http://www.amazon.com/reader/0470289627/#reader. Professional multi-core programming.
+
+Erlang is for girls.
+
+"Wake up!":/2009/03/03/wake-up.html
+
