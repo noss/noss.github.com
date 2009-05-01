@@ -1,0 +1,16 @@
+---
+layout: post
+title: Erlang packaging format
+---
+
+p(meta). 2009-05-01
+
+Just having read Paul Mineiro's article "The Need for Language Specific Packaging":http://dukesoferl.blogspot.com/2009/05/need-for-language-specific-packaging.html I finally see a solution for erlang software packaging that I like. I have mostly ignored all the people asking for an Erlang version of things like Perl's CPAN. And that goes for the existing efforts, such as "erlware":http://www.erlware.org/ and "CEAN":http://cean.process-one.net/.
+
+The reason I have ignored it is because I dont see myself using yet-another-tool-for-installing-software. I have been quite happy using the ones from linux distributions I know. You seem to be able to add third-party-vendor package repositories for both redhat's dot-rpm and for debian/ubuntu dot-deb files. The problem then are "those other people" that use macs or windows or whatever.
+
+So my take from reading Paul's article is that *what we need* is a format for describing the package, so that tools can be made to automatically build package files for each package system in existance now and in the future. We *do not need* our own distribution system, our own package file format, our own software update system, and our own documentation.
+
+The file could probably be something simple as a single main package description, then one file with specifics for each package file-format target. Everything in convenient file:consult/1-able text formats.
+
+
