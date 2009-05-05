@@ -1,0 +1,16 @@
+---
+layout: post
+title: Bye Hacker News
+---
+
+p(meta). 2009-05-04
+
+It is a curous thing, the downhill life of link aggregation services. I've known for a longer time that I should have stopped subscribing to "hacker news":http://news.ycombinator.com/. The feed flow has been increasing, but the signal has not.
+
+I guess it is a natural economic consequence, once you have this free service where you can post a link and get perhaps thousands of eyes following it, then there is money in getting your link on there. It ends up being the tragedy of the commons. My suspishious nature makes me believe some people live on submitting passable relevant links to aggregation services, building up karma, just so they can "waste" a little of it by charging on a black market for submitting links with marketing intentions.
+
+Diluting signal with noise at benefit for them, only incrementing noise slighly for us. It works. More people want to do it. Soon the site is full of people posting passable relevant links, and their spam. The target "entrepreneur hacker news" niche is smeared out, and soon it is all lolcats, fail-pics and viral youtube links and the masses have arrived.  "Hey! Hackers need humour, dont you have any humour? Come on! its just fun!". Okay that has not happened yet.
+
+It must be the model that is wrong, the solution cant be to throw in more stringent moderators. That doesnt scale. It is definitely a systematic failure. Maybe the solution is to not let everybody in to post. Keep the member counts bound to everyone-knows-everyone sizes. Beyond that you need economy rather than social aspects as community glue.
+
+
