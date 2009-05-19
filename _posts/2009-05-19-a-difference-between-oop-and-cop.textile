@@ -1,0 +1,15 @@
+---
+layout: post
+title: A difference between OOP and COP
+---
+
+p(meta). 2009-05-19
+
+Let me try to explain a difference I keep in mind for Concurrency Oriented Programming (COP) versus Object Oriented Programing (OOP). Erlang flavour.
+
+OOP is all about where data ends up being stored. You give things that store data descriptive names that corresponds to what they keep and what they model in the real world. Threads that go around and mutate state in the objects are secondary citizens, you dont give them good names, if you try to name a thread in a given OO design it would probably be something generic, such as "Worker", "Executor", "Handler". They're things that do stuff. 
+
+In COP it is the other way around. You dont focus so much on things that store stuff. You pay all the attention on things that accomplish stuff. You want those things to do small and well-defined things. You want to give them names that describes the things they do. You want them to go away when they have done what they should.
+
+This is "Object" versus "Process".
+
