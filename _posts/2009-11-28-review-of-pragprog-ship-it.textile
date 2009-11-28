@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Review of Ship It! from The Pragmatic Programmers"
+---
+
+p(meta). 2009-11-28
+
+I really liked "Release It!" by Michael T. Nygard, and recommend it to anyone working with systems that need high availability. Since I liked it so much, I thought I should read the whole "... It!" series of books from The Pragmatic Programmers.
+
+The book "Ship It!" is subtitled with "A practical guide to successful software projects". This guide focuses on:
+
+* tools that every software shop should have in place, and 
+* how software teams should work together and practices they ought to have.
+
+All suggestions are good and sound, ... but also things I already do and strive to start doing. So it felt like reading what I already knew. Perhaps I've been spoiled to expect "Aha!"-like feelings from technical books. After reading the book I do not feel like I have gained a better ability to argue for the introduction of the practices suggested. 
+
+Another reason the book didn't give me "Aha!"-moments is that my open source involvement have made me so used to automatic builds (using Makefiles) and version control systems (cvs, svn, and of course GIT!). I simply can't imagine a real software company that don't use these things.
+
+Of course, this book was published in 2005 and the suggestions would have been much fresher to me then than now. The whole agile movement, timeboxing sprints, delivering the most useful remaining feature, increasing human face-to-face communication, those are things that have spread very well now in 2009.
+
+
