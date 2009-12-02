@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Mean time to recovery"
+---
+
+p(meta). 2009-12-02
+
+Erlang comes from another culture in thinking about reliability and how to achieve it. Understanding the culture is important, since Erlang code does not become fault-tolerant by magic just because its Erlang.
+
+A fundamental idea is that high uptime does not only come from a very long mean-time-between-failures, it also comes from a very short mean-time-to-recovery, if a failure happened.
+
+One then realize that one need automatic restarts when a failure is detected. And one realize that at the first detection of something not being quite right then one should "crash" to cause a restart. The recovery needs to be optimized, and the possible information losses need to be minimal.
+
+This strategy is followed by many successful softwares, such as journaling filesystems or transaction-logging databases. But overwhelmingly, software tends to only consider the mean-time-between-failure and send messages to the system log about error-indications then try to keep on running until it is not possible anymore. Typically requiring human monitoring the system and manually reboot.
+
+Most of these strategies are in the form of libraries in Erlang. The part that is a language feature is that processes can "link" and "monitor" each other. The first one is a bi-directional contract that "if you crash, then I get your crash message, which if not trapped will crash me", and the second is a "if you crash, i get a message about it".
+
+Linking and monitoring are the mechanisms that the libraries use to make sure that other processes have not crashed (yet). Processes are organized into "supervision" trees. If a worker process in the tree fails, the supervisor will attempt to restart it, or all workers at the same level of that branch in the tree. If that fails it will escalate up, etc. If the top level supervisor gives up the application crashes and the virtual machine quits, at which point the system operator should make the computer restart.
+
+The complete isolation between process heaps is another reason Erlang fares well. With few exceptions, it is not possible to "share values" between processes. This means that all processes are very self-contained and are often not affected by another process crashing. This property also holds between nodes in an Erlang cluster, so it is low-risk to handle a node failing out of the cluster. Replicate and send out change events rather than have a single point of failure.
+
+The philosophies adopted by Erlang has many names, "fail fast", "crash-only system", "recovery oriented programming", "expose errors", "micro-restarts", "replication", ...
+
+Cited from "my post at stackoverflow.com":http://stackoverflow.com/questions/1831520/relation-between-language-and-scalability/1832436#1832436 that became a bit of a rant. He did after all ask about scalability and not fault-tolerance.
+
+
