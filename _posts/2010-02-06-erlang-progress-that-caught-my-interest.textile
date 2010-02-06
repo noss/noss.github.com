@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Some Erlang progress that caught my interest"
+---
+
+p(meta). 2010-02-06
+
+I have not been following the Erlang mailing list for almost six months, so these findings might be 'Teh old!!11' for all of you.
+
+Kostis Sagonas has made an automatic refactoring tool called "tidier":http://tidier.softlab.ntua.gr/mediawiki/index.php/Main_Page. Take a look at this pdf presentation of what "things erlang tidier can do":http://www.erlang-factory.com/upload/presentations/121/KostisSagonas-ErlangFactoryLondon2009-CleaningupErlangcodeisadirtyjobbutsomebodysgottadoit.pdf. The homepage has a link to a web-interface where you can try tidier on your own code without having the tool locally.
+
+On page 28 of that presentation I see this weird new list comprehension syntax. It is using double ampersands in what looks like a parallell list generator. That is news to me. Digging around I find "EEP 19":http://www.erlang.org/eeps/eep-0019.html which is on a standards track. Apparently we are going to be able to zip up lists using LCs in a bright new future.
+
+My R13B03 does not have it. Tidier can refactor to it. I havent attempted a snapshot build of OTP on github. But I can guess this will be included in R13B04. Maybe tidier will be included as well. Maybe not. I don't know anything.
+
+With all these source tools for Erlang (dialyzer, wrangler, tidier, cover,...) it might be time to adjust my attitude toward Erlang IDEs, because I am not using a single one of these tools religiously. There must be some reason why I don't. My main development platform is vi/erlang and Makefiles from the shell. If I need to go through this pain threshold to set it up it just won't happen until the pain of not using them is greater.
+
+
